@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     public Animator anim;
     public GameObject playerModel;
     private Rigidbody rb;
+    private bool isRun;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -16,6 +19,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         anim = playerModel.GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -29,15 +33,33 @@ public class Player : MonoBehaviour
         if (moveX != 0 || moveZ != 0)
         {
             anim.SetBool("isRun", true);
+            isRun = true;
         }
         else
         {
             anim.SetBool("isRun", false);
+            isRun = false;
+        }
+
+        Attack();   
+    }
+
+    void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isRun == false)
+        {
+            anim.SetTrigger("attack");
+            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange); //area will spawn when attack button is pressed   
+            foreach (Collider enemy in hitEnemies)
+            {
+                Debug.Log("We hit " + enemy.name);
+            }
         }
     }
 
-    void Run()
-    {
-        
+     void OnDrawGizmosSelected() {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
