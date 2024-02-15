@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "2.5D-Prototype.sln"
+    "dotnet.defaultSolution": "2.5DTesting.sln"
 }
