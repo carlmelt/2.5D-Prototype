@@ -14,16 +14,6 @@ public class _CharacterController : MonoBehaviour
     private void Awake(){
         charRigid = GetComponent<Rigidbody>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Move(Vector2 move){
         Vector3 targetVelocity = new Vector3(move.x, charRigid.velocity.y, move.y);
