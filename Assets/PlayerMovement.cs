@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+// using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,16 +15,23 @@ public class PlayerMovement : MonoBehaviour
     private bool canAttack = true;
     private bool canWalk = true;
     public float walkSpeed = 40f;
+    private  PlayerInput playerInput;
     float cooldownTime = 0;
+    private Vector2 playerMove;
+
+   private void Awake() {
+        playerInput = GetComponent<PlayerInput>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if(canWalk){
+            playerMove = playerInput.actions["Move"].ReadValue<Vector2>();
             horizontalMove = Input.GetAxisRaw("Horizontal");// * walkSpeed;
             verticalMove = Input.GetAxisRaw("Vertical");// * walkSpeed;
         }
-        if (Input.GetMouseButtonDown(0) && canAttack){
+        if (playerInput.actions["Attack"].triggered && canAttack){ //Attack Button
             cooldownTime = 0;
             canAttack = false;
             //reset walk dir, render walk impossible
@@ -31,11 +41,11 @@ public class PlayerMovement : MonoBehaviour
             //attack
             comboController.Attack();
         }
-        comboController.playerAnimator.SetBool("isWalking", (Mathf.Abs(horizontalMove) > 0 || (Mathf.Abs(verticalMove)) > 0));//refactor
+        comboController.playerAnimator.SetBool("isWalking", (Mathf.Abs(playerMove.x) > 0 || (Mathf.Abs(playerMove.y)) > 0));//refactor
     }
 
     void FixedUpdate(){
-        characterController.Move(new Vector2(horizontalMove,verticalMove).normalized * walkSpeed * Time.fixedDeltaTime);
+        characterController.Move(new Vector2(playerMove.x,playerMove.y).normalized * walkSpeed * Time.fixedDeltaTime);
         cooldownTime += Time.fixedDeltaTime;
         if (cooldownTime > 0.3f){
             canAttack = true;

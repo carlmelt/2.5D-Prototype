@@ -1,1 +1,54 @@
-{}
+{
+    "name": "Controller",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "54c68567-d09a-4977-8d07-16da9f353595",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "78af8791-3157-48f9-80ef-7d30359fe0f7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "79bea7bf-ca99-426c-86e3-b8bd3482d12d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c4404732-16e7-405d-a7a4-040a87a881c3",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ec54aab-15af-4e16-8a84-6c112f0c7559",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
