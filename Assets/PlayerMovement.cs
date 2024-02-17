@@ -28,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(canWalk){
             playerMove = playerInput.actions["Move"].ReadValue<Vector2>();
-            horizontalMove = Input.GetAxisRaw("Horizontal");// * walkSpeed;
-            verticalMove = Input.GetAxisRaw("Vertical");// * walkSpeed;
+            // horizontalMove = Input.GetAxisRaw("Horizontal");// * walkSpeed;
+            // verticalMove = Input.GetAxisRaw("Vertical");// * walkSpeed;
         }
         if (playerInput.actions["Attack"].triggered && canAttack){ //Attack Button
             cooldownTime = 0;
