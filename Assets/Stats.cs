@@ -2,33 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
+using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
-    [SerializeField] private GameObject Owner;
-
-    [SerializeField] private float maxHealth = 10f;
-    public float currentHealth;
-    // public UnityEvent<int> OnHit;
+    [SerializeField] private Slider healthBar;
+    Enemy entity;
 
     void Awake(){
-        Owner = this.gameObject;
+        entity = GetComponent<Enemy>();
     }
 
     void Start(){
-        currentHealth = maxHealth;
+        healthBar.maxValue = entity.MaxHealth;
+        healthBar.value = entity.CurrentHealth;
+    }
+    
+    void OnEnable(){
+        entity.Damage += UpdateBar;
     }
 
-    public void TakeDamage(float damage){
-        currentHealth -= damage;
-
-        if (currentHealth <= 0){
-            Die();
-        }
+    void OnDisable(){
+        entity.Damage -= UpdateBar;
     }
 
-    void Die(){
-        Destroy(Owner);
+    void UpdateBar(int value){
+        healthBar.value = entity.CurrentHealth;
     }
-
 }
