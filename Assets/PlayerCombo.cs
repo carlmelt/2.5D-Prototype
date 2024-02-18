@@ -20,10 +20,9 @@ public class PlayerCombo : MonoBehaviour
         //Get overlapping entities
         Collider[] hitEntities = Physics.OverlapSphere(attackPoint.position, attackRange);
         foreach(Collider Entities in hitEntities){
-            Stats entityStats = Entities.GetComponent<Stats>();
+            Enemy entityStats = Entities.GetComponent<Enemy>();
             //Check if entity have stats. if not, continue the loop
-            if (entityStats ==  null) continue;
-            entityStats.TakeDamage(attackDamage);
+            entityStats?.Damaged(Mathf.FloorToInt(attackDamage));
         }
     }
 
