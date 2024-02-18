@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameObject deadParticle;
-    public event Action<int> Damage = delegate {};
+    public event Action Damage = delegate {};
     public event Action<int> Healed = delegate {};
     public event Action Dead = delegate {};
     [SerializeField] int _maxHealth;
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     public void Damaged(int amount){
         _currentHealth -= amount;
-        Damage?.Invoke(amount);
+        Damage?.Invoke();
         if (_currentHealth <= 0){
             Die();
         }

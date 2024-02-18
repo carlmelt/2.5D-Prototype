@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] _CharacterController characterController;
+    [SerializeField] _CharacterController characterController; //why the name is _CharacterController? it should be CharacterController
+    //This because the name CharacterController is already used by Unity Engine
     [SerializeField] PlayerCombo comboController;
     private float horizontalMove = 0f;
     private float verticalMove = 0f;
@@ -41,12 +42,18 @@ public class PlayerMovement : MonoBehaviour
             //attack
             comboController.Attack();
         }
+        if (playerInput.actions["Dash"].triggered){//Dash Button
+            characterController.Dash();
+            comboController.currentCombo = 0;
+
+        }
         comboController.playerAnimator.SetBool("isWalking", (Mathf.Abs(playerMove.x) > 0 || (Mathf.Abs(playerMove.y)) > 0));//refactor
     }
 
     void FixedUpdate(){
         characterController.Move(new Vector2(playerMove.x,playerMove.y).normalized * walkSpeed * Time.fixedDeltaTime);
         cooldownTime += Time.fixedDeltaTime;
+
         if (cooldownTime > 0.3f){
             canAttack = true;
             canWalk = true;

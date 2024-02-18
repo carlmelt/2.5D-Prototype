@@ -21,13 +21,19 @@ public class Stats : MonoBehaviour
     
     void OnEnable(){
         entity.Damage += UpdateBar;
+        entity.Damage += debugging;
     }
 
     void OnDisable(){
         entity.Damage -= UpdateBar;
+        entity.Damage -= debugging;
     }
 
-    void UpdateBar(int value){
+    void debugging(){
+        Debug.Log("Ngakak Cik!");
+    }
+    void UpdateBar(){
+        Debug.Log("Updating Health Bar");
         healthBar.value = entity.CurrentHealth;
     }
 }
