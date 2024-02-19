@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSkill : MonoBehaviour
 {
     public Animator playerAnimator;
-    // public ScriptableObject skill;
+    public BaseSkill skill;
     public bool canSkill = true;
     public float skillCooldown;
     public GameObject skillEffect;
@@ -13,7 +13,7 @@ public class PlayerSkill : MonoBehaviour
 
     private void Awake() {
         playerAnimator = GetComponent<Animator>();
-
+        skillCooldown = skill.cooldown;
     }
     // Start is called before the first frame update
     void Start()
@@ -29,10 +29,11 @@ public class PlayerSkill : MonoBehaviour
 
     public void Skill(){
         if (canSkill){
+            skill.Activate(this);
             canSkill = false;
-            // playerAnimator.SetTrigger("Skill");
-            GameObject particleGO = Instantiate(skillEffect, skillSpawnPoint.position, skillSpawnPoint.rotation);
-            Destroy(particleGO, 2f);
+            // // playerAnimator.SetTrigger("Skill");
+            // GameObject particleGO = Instantiate(skillEffect, skillSpawnPoint.position, skillSpawnPoint.rotation);
+            // Destroy(particleGO, 2f);
             
             StartCoroutine(SkillCooldown(skillCooldown));
         }

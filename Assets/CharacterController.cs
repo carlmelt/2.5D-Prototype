@@ -11,7 +11,7 @@ public class _CharacterController : MonoBehaviour
     private bool facingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
     public bool canDash = true;
-public Transform attackPoint;
+    public Transform attackPoint;
     public PlayerSkill playerSkill;
 
     private void Awake()

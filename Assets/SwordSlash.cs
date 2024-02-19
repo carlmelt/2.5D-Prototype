@@ -24,5 +24,5 @@ public class SwordSlash : MonoBehaviour
     {
 
         transform.Translate(Vector3.right * Time.deltaTime * 0.5f);
-        }
+    }
 }

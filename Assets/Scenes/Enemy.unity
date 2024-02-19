@@ -1102,6 +1102,8 @@ MonoBehaviour:
   jumpForce: 500
   m_movementSmoother: 0.05
   canDash: 1
+  attackPoint: {fileID: 0}
+  playerSkill: {fileID: 0}
 --- !u!54 &851143163
 Rigidbody:
   m_ObjectHideFlags: 0
