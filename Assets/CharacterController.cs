@@ -10,7 +10,7 @@ public class _CharacterController : MonoBehaviour
     private Rigidbody charRigid;
     private bool facingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
-    private bool canDash = true;
+    public bool canDash = true;
 
     private void Awake()
     {
