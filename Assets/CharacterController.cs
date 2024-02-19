@@ -11,10 +11,13 @@ public class _CharacterController : MonoBehaviour
     private bool facingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
     public bool canDash = true;
+public Transform attackPoint;
+    public PlayerSkill playerSkill;
 
     private void Awake()
     {
         charRigid = GetComponent<Rigidbody>();
+        playerSkill = GetComponent<PlayerSkill>();
     }
 
     public void Move(Vector2 move)
@@ -52,6 +55,11 @@ public class _CharacterController : MonoBehaviour
         }
     }
 
+    void Skill()
+    {
+        playerSkill.Skill();
+    }
+
     IEnumerator DashCooldown(float Cd)
     {
         yield return new WaitForSeconds(Cd);
@@ -73,5 +81,7 @@ public class _CharacterController : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;
         transform.localScale = currentScale;
+        //rotate attack point
+        attackPoint.Rotate(0f, 180f, 0f);
     }
 }
