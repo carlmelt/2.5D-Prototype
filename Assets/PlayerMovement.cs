@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
             comboController.Attack();
         }
         if (playerInput.actions["Dash"].triggered){//Dash Button
+            comboController.playerAnimator.SetTrigger("Dash");
             characterController.Dash();
             comboController.currentCombo = 0;
 
