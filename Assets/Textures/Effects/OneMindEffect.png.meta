@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3dfadf9e83cf5c7448e19574f0d0382e
+guid: 2c6d3f01dd4863448b6f18fad3fd16ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireSlashEffect_0
+      name: OneMindEffect_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 72
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a33bc5cb5fad5f048ae9ee750a172c87
-      internalID: -1830695433
+      spriteID: da6706f0d4ddb334daa105e6816b78c3
+      internalID: -1113757091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireSlashEffect_1
+      name: OneMindEffect_1
       rect:
         serializedVersion: 2
-        x: 72
+        x: 64
         y: 0
-        width: 72
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35aa5d26685003948a57b5abebbe7bc0
-      internalID: -1200623249
+      spriteID: 632fbb6f37e9ae14da3b8afbcfc1368e
+      internalID: 1223641224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireSlashEffect_2
+      name: OneMindEffect_2
       rect:
         serializedVersion: 2
-        x: 144
+        x: 128
         y: 0
-        width: 72
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,29 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 926430d65a7ded34299eb20c15728daf
-      internalID: -277813205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireSlashEffect_3
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 0
-        width: 72
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4b44ed88b39f28489beba7aaa2b07a6
-      internalID: 1402283836
+      spriteID: bc0cd2df7639c98469b2b15d5da39a8b
+      internalID: -1969667501
       vertices: []
       indices: 
       edges: []
@@ -222,7 +201,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 79e11393e63661245b1baed0ce103758
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -230,10 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FireSlashEffect_0: -1830695433
-      FireSlashEffect_1: -1200623249
-      FireSlashEffect_2: -277813205
-      FireSlashEffect_3: 1402283836
+      OneMindEffect_0: -1113757091
+      OneMindEffect_1: 1223641224
+      OneMindEffect_2: -1969667501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a9dbd05dbaba3b48b9e5fbb071e8442, type: 3}
-  m_Name: Slash
+  m_Name: OneMind_SlashUp
   m_EditorClassIdentifier: 
-  name: Slash
+  name: SlashUp
   damage: 5
-  skillAnim: {fileID: 7400000, guid: ef235106462b5174c863579a93fba454, type: 2}
-  castTime: 0
-  cooldown: 0.5
-  projectile: {fileID: 4372020817995423895, guid: dc3baeffa1c787d448a6c2766266e885,
+  skillAnim: {fileID: 7400000, guid: 7b371c035fc4c744a8a479ba91b3c91e, type: 2}
+  cooldown: 0.3
+  projectile: {fileID: 3182325743491520071, guid: 338abc035d7430b4f9b3a60bbda80f91,
     type: 3}
