@@ -12,12 +12,12 @@ public class _CharacterController : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     public bool canDash = true;
     public Transform attackPoint;
-    public PlayerSkill playerSkill;
+    public SkillHolder playerSkill;
 
     private void Awake()
     {
         charRigid = GetComponent<Rigidbody>();
-        playerSkill = GetComponent<PlayerSkill>();
+        playerSkill = GetComponent<SkillHolder>();
     }
 
     public void Move(Vector2 move)

@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashEffect: {fileID: 7772453771007610673}
+  timeOffset: 0.2
 --- !u!54 &2657902115824471986
 Rigidbody:
   m_ObjectHideFlags: 0

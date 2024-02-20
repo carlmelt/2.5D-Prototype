@@ -1,40 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSkill : MonoBehaviour
+public class SkillHolder : MonoBehaviour
 {
+    public event Action<float> SkillCasted = delegate {};
     public Animator playerAnimator;
     public BaseSkill skill;
     public bool canSkill = true;
     public float skillCooldown;
     public GameObject skillEffect;
     public Transform skillSpawnPoint;
+    AnimatorOverrideController animatorOverrider;
+    AnimationClip currentAnimation;
 
     private void Awake() {
         playerAnimator = GetComponent<Animator>();
+        animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
+        playerAnimator.runtimeAnimatorController = animatorOverrider;
         skillCooldown = skill.cooldown;
+        currentAnimation = animatorOverrider["TestFireSlash"];
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Skill(){
         if (canSkill){
+            animatorOverrider[currentAnimation] = skill.skillAnim;
+            // currentAnimation = skill.skillAnim;
+            // Debug.Log(animatorOverrider.clips);
+            // Debug.Log(currentAnimation);
             skill.Activate(this);
             canSkill = false;
-            // // playerAnimator.SetTrigger("Skill");
+            playerAnimator.SetTrigger("Skill");
             // GameObject particleGO = Instantiate(skillEffect, skillSpawnPoint.position, skillSpawnPoint.rotation);
             // Destroy(particleGO, 2f);
-            
+            SkillCasted.Invoke(skill.castTime);
             StartCoroutine(SkillCooldown(skillCooldown));
         }
     }
