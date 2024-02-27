@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     float cooldownTime = 0;
     private Vector2 playerMove;
+    float dashForce = 500f;
 
     private void Awake()
     {
@@ -60,8 +61,10 @@ public class PlayerMovement : MonoBehaviour
             if (characterController.canDash == true)
             {
                 comboController.playerAnimator.SetTrigger("Dash");
+                characterController.Dash(dashForce);
+                characterController.canDash = false;
+                StartCoroutine(characterController.DashCooldown(1f));
             }
-            characterController.Dash();
             comboController.currentCombo = 0;
 
         }
@@ -69,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerInput.actions["Skill"].triggered)
         {//Skill Button
+            // characterController.playerSkill.currentSkill = SkillHolder.skill1;
             characterController.playerSkill.Skill();
         }
     }

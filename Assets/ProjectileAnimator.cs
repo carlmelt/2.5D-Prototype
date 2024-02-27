@@ -5,6 +5,7 @@ using UnityEngine.U2D;
 
 public class ProjectileAnimator : MonoBehaviour
 {
+    public SkillHolder owner;
     [SerializeField] Vector3 offset;
     [SerializeField] float frameDelay;
     [SerializeField] float startDelay;
@@ -20,8 +21,9 @@ public class ProjectileAnimator : MonoBehaviour
 
     // Update is called once per frame
     public IEnumerator Animate(){
-        transform.position += offset;
+        // transform.position += offset;
         yield return new WaitForSeconds(startDelay);
+        transform.position = owner.skillSpawnPoint.transform.position + offset;
         for (int i = 0; i<sprites.Length; i++){
             yield return new WaitForSeconds(frameDelay);
             spriteRenderer.sprite = sprites[i];

@@ -16,3 +16,7 @@ public abstract class BaseSkill : ScriptableObject
         if (skillAnim) castTime = skillAnim.length;
     }
 }
+
+public interface IChainedSkill {
+    public IEnumerator ChainSkill();
+}

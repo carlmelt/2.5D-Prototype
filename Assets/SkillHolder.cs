@@ -6,8 +6,11 @@ using UnityEngine;
 public class SkillHolder : MonoBehaviour
 {
     public event Action<float> SkillCasted = delegate {};
+    public event Action<float> StartCooldown = delegate {};
     public Animator playerAnimator;
-    public BaseSkill skill;
+    public BaseSkill currentSkill;
+    public static BaseSkill skill1;
+    public static BaseSkill skill2;
     public bool canSkill = true;
     public float skillCooldown;
     public GameObject skillEffect;
@@ -18,20 +21,20 @@ public class SkillHolder : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
         playerAnimator.runtimeAnimatorController = animatorOverrider;
-        skillCooldown = skill.cooldown;
+        skillCooldown = currentSkill.cooldown;
     }
     public void Skill(){
         if (canSkill && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SkillCast")){
-            animatorOverrider["TestFireSlash"] = skill.skillAnim; //The default skill anim is TestFireSlash
-            // currentAnimation = skill.skillAnim;
+            animatorOverrider["TestFireSlash"] = currentSkill.skillAnim; //The default currentSkill anim is TestFireSlash
+            // currentAnimation = currentSkill.skillAnim;
             // Debug.Log(animatorOverrider.clips);
             // Debug.Log(currentAnimation);
-            skill.Activate(this);
+            currentSkill.Activate(this);
             canSkill = false;
             playerAnimator.SetTrigger("Skill");
             // GameObject particleGO = Instantiate(skillEffect, skillSpawnPoint.position, skillSpawnPoint.rotation);
             // Destroy(particleGO, 2f);
-            SkillCasted.Invoke(skill.castTime);
+            SkillCasted.Invoke(currentSkill.castTime);
             StartCoroutine(SkillCooldown(skillCooldown));
         }
     }
