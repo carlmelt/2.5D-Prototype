@@ -198,6 +198,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: OneMindEffect_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5298507973df847b854069db7d2b6c
+      internalID: 1239572994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -212,6 +233,7 @@ TextureImporter:
       OneMindEffect_0: -1113757091
       OneMindEffect_1: 1223641224
       OneMindEffect_2: -1969667501
+      OneMindEffect_3: 1239572994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

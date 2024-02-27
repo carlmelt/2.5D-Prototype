@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseSkill : ScriptableObject
 {
-    public string name;
+    public string skillName;
     public int damage;
     public AnimationClip skillAnim;
     public float castTime;

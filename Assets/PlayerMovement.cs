@@ -26,13 +26,15 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
     }
 
-    // void OnEnable(){
-    //     characterController.playerSkill.SkillCasted += (_castTime)=>StartCoroutine(SkillCast(_castTime));
-    // }
+    void Start(){
+        // characterController.playerSkill.SkillCasted += (_castTime)=>StartCoroutine(SkillCast(_castTime));
+        characterController.playerSkill.SkillCasted += Freeze;
+    }
 
-    // void OnDisable(){
-    //     characterController.playerSkill.SkillCasted -= (_castTime)=>StartCoroutine(SkillCast(_castTime));
-    // }
+    void OnDisable(){
+        // characterController.playerSkill.SkillCasted -= (_castTime)=>StartCoroutine(SkillCast(_castTime));
+        characterController.playerSkill.SkillCasted -= Freeze;
+    }
 
     // Update is called once per frame
     void Update()
@@ -45,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (playerInput.actions["Attack"].triggered && canAttack)
         { //Attack Button
-            cooldownTime = 0;
+            cooldownTime = Time.time;
             canAttack = false;
             //reset walk dir, render walk impossible
             playerMove = Vector2.zero;
@@ -74,9 +76,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         characterController.Move(new Vector2(playerMove.x, playerMove.y).normalized * walkSpeed * Time.fixedDeltaTime);
-        cooldownTime += Time.fixedDeltaTime;
+        // cooldownTime += Time.fixedDeltaTime;
 
-        if (cooldownTime > 0.3f)
+        if (Time.time - cooldownTime > 0.3f)
         {
             canAttack = true;
             canWalk = true;
@@ -85,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 comboController.playerAnimator.ResetTrigger("Attack" + i.ToString());
             }
         }
-        if (cooldownTime > 0.6f)
+        if (Time.time - cooldownTime > 0.6f)
         {//reset
             comboController.currentCombo = 0;
         }
@@ -96,13 +98,19 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(new Vector2(distance * transform.localScale.x, 0f));
     }
 
+    void Freeze(float timeOffset=0.3f){
+        canWalk = false;
+        canAttack = false;
+        playerMove = Vector2.zero;
+        cooldownTime = Time.time + (timeOffset - 0.3f);
+    }
+
     // IEnumerator SkillCast(float skillCastTime)
     // {
     //     canWalk = false;
     //     canAttack = false;
-    //     yield return new WaitForSeconds(skillCastTime);
-    //     canWalk = true;
-    //     canAttack = true;
+    //     playerMove = Vector2.zero;
+    //     cooldownTime = Time.time + (skillCastTime - 0.3f);
+    //     yield return new WaitForSeconds(skillCastTime - 0.2f);
     // }
-
 }
