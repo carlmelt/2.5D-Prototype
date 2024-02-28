@@ -7,17 +7,17 @@ public class SkillHolder : MonoBehaviour
 {
     public event Action<float> SkillCasted = delegate {};
     public event Action<float> StartCooldown = delegate {};
+    public delegate void SkillChanged(int targetIndex, BaseSkill newSkill);
+    public SkillChanged skillChanged;
     public Animator playerAnimator;
     public BaseSkill currentSkill;
     public static BaseSkill skill1;
     public static BaseSkill skill2;
-    public BaseSkill defaultSkill;
+    public static BaseSkill ultimateSkill;
     public bool canSkill = true;
     public float skillCooldown;
-    public GameObject skillEffect;
     public Transform skillSpawnPoint;
     AnimatorOverrideController animatorOverrider;
-    public static BaseSkill skill1;
     
     // public static BaseSkill skill2;
     // public static SOUltimat ultimate;
@@ -27,31 +27,44 @@ public class SkillHolder : MonoBehaviour
         animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
         playerAnimator.runtimeAnimatorController = animatorOverrider;
         skillCooldown = currentSkill.cooldown;
+        //testing purpose:
+        skill1 = currentSkill;
     }
     public void Skill(){
         if (canSkill && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SkillCast")){
-            animatorOverrider["TestFireSlash"] = currentSkill.skillAnim; //The default currentSkill anim is TestFireSlash
-            // currentAnimation = currentSkill.skillAnim;
-            // Debug.Log(animatorOverrider.clips);
-            // Debug.Log(currentAnimation);
-            currentSkill.Activate(this);
-        skillCooldown = skill1.cooldown;
-        skill1 = defaultSkill;
-    }
-    public void Skill(){
-        if (canSkill && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SkillCast")){
-            animatorOverrider["TestFireSlash"] = skill1.skillAnim; //The default skill anim is TestFireSlash
+            animatorOverrider["TestFireSlash"] = currentSkill.skillAnim; //The default skill anim is TestFireSlash
             // currentAnimation = skill.skillAnim;
             // Debug.Log(animatorOverrider.clips);
             // Debug.Log(currentAnimation);
-            skill1.Activate(this);
+            currentSkill.Activate(this);
             canSkill = false;
             playerAnimator.SetTrigger("Skill");
             // GameObject particleGO = Instantiate(skillEffect, skillSpawnPoint.position, skillSpawnPoint.rotation);
             // Destroy(particleGO, 2f);
-            SkillCasted.Invoke(skill1.castTime);
+            SkillCasted.Invoke(currentSkill.castTime);
             StartCoroutine(SkillCooldown(skillCooldown));
         }
+    }
+
+    public void ChangeSkill(BaseSkill oldSkill, BaseSkill newSkill){
+        int skillTargetIndex;
+        if (skill1 == oldSkill) {
+            skill1 = newSkill;
+            skillTargetIndex = 0;
+        }
+        else if(skill2 == oldSkill){
+            skill2 = newSkill;
+            skillTargetIndex = 1;
+        }
+        else if (ultimateSkill == oldSkill){
+            ultimateSkill = newSkill;
+            skillTargetIndex = 2;
+        }
+        else{
+            Debug.Log("Unknown Error. No target skill/ultimate found.");
+            return;
+        }
+        skillChanged?.Invoke(skillTargetIndex, newSkill);
     }
 
     IEnumerator SkillCooldown(float Cd)
