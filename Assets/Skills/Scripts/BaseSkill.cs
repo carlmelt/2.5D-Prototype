@@ -9,6 +9,8 @@ public abstract class BaseSkill : ScriptableObject
     public AnimationClip skillAnim;
     public float castTime;
     public float cooldown;
+    public bool isUnlocked;
+    public bool isUltimate;
     // Start is called before the first frame update
     public virtual void Activate(SkillHolder owner){}
 
