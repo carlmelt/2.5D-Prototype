@@ -13,18 +13,16 @@ public class SkillHolder : MonoBehaviour
     public GameObject skillEffect;
     public Transform skillSpawnPoint;
     AnimatorOverrideController animatorOverrider;
-    AnimationClip currentAnimation;
 
     private void Awake() {
         playerAnimator = GetComponent<Animator>();
         animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
         playerAnimator.runtimeAnimatorController = animatorOverrider;
         skillCooldown = skill.cooldown;
-        currentAnimation = animatorOverrider["TestFireSlash"];
     }
     public void Skill(){
-        if (canSkill){
-            animatorOverrider[currentAnimation] = skill.skillAnim;
+        if (canSkill && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SkillCast")){
+            animatorOverrider["TestFireSlash"] = skill.skillAnim; //The default skill anim is TestFireSlash
             // currentAnimation = skill.skillAnim;
             // Debug.Log(animatorOverrider.clips);
             // Debug.Log(currentAnimation);

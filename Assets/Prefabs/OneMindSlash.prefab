@@ -97,10 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4168101eb0464fc4a8838f5f2d795b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
   frameDelay: 0.1
   startDelay: 0.23
-  spriteRenderer: {fileID: 0}
   sprites:
   - {fileID: -1113757091, guid: 2c6d3f01dd4863448b6f18fad3fd16ab, type: 3}
   - {fileID: 1223641224, guid: 2c6d3f01dd4863448b6f18fad3fd16ab, type: 3}
   - {fileID: -1969667501, guid: 2c6d3f01dd4863448b6f18fad3fd16ab, type: 3}
+  - {fileID: 1239572994, guid: 2c6d3f01dd4863448b6f18fad3fd16ab, type: 3}
