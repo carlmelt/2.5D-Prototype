@@ -36,22 +36,22 @@ public class _CharacterController : MonoBehaviour
 
     }
 
-    public void Dash()
+    public void Dash(float dashForce)
     {
 
         //Check left or right
         if (canDash)
         {
-            canDash = false;
+            // canDash = false;
             if (facingRight)
             {
-                charRigid.AddForce(Vector3.right * 500);
+                charRigid.AddForce(Vector3.right * dashForce);
             }
             else
             {
-                charRigid.AddForce(Vector3.left * 500);
+                charRigid.AddForce(Vector3.left * dashForce);
             }
-            StartCoroutine(DashCooldown(1f));
+            // StartCoroutine(DashCooldown(1f));
         }
     }
 
@@ -60,7 +60,7 @@ public class _CharacterController : MonoBehaviour
         playerSkill.Skill();
     }
 
-    IEnumerator DashCooldown(float Cd)
+    public IEnumerator DashCooldown(float Cd)
     {
         yield return new WaitForSeconds(Cd);
         Debug.Log("Dash Ready");

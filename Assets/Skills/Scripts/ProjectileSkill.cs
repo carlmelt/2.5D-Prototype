@@ -11,6 +11,8 @@ public class ProjectileSkill : BaseSkill
     public override void Activate(SkillHolder owner){
         Transform spawnPoint = owner.skillSpawnPoint;
         GameObject projectileSpawn = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
+        ProjectileAnimator _projectile = projectileSpawn.GetComponent<ProjectileAnimator>();
+        if (_projectile != null) _projectile.owner = owner;
         Destroy(projectileSpawn, 2f);
     }
 }
