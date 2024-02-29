@@ -30,6 +30,6 @@ public class SkillButton : MonoBehaviour
     }
 
     public void _update_button(){ // update button info
-        skillName.text = skill.name;
+        skillName.text = skill.skillName;
     }
 }
