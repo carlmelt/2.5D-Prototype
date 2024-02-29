@@ -29,6 +29,8 @@ public class SkillSelector : MonoBehaviour
         List<BaseSkill> playerSkills = new List<BaseSkill>(){SkillHolder.skill1, SkillHolder.skill2, SkillHolder.ultimateSkill};
         for (int i = 0; i < buttons.Count; i++){
             if(playerSkills[i] != null) UpdateButton(i, playerSkills[i]);
+            Debug.Log(playerSkills[i]);
+            Debug.Log(buttons[i]);
         }
     }
 

@@ -30,7 +30,8 @@ public class SkillReplace : MonoBehaviour
     public void Replace(){
         // SkillHolder playerSkill = FindObjectOfType<PlayerMovement>().GetComponent<SkillHolder>(); // Use this if player exist.
         SkillHolder playerSkill = FindObjectOfType<SkillHolder>();
-        if (playerSkill != null) playerSkill.ChangeSkill(SkillSelector.selectedButton.GetComponent<SkillButton>().skill, selectedSkill);
+        BaseSkill selectedButtonSkill = SkillSelector.selectedButton.GetComponent<SkillButton>().skill;
+        if (playerSkill != null) playerSkill.ChangeSkill(selectedButtonSkill, selectedSkill);
 
     }
 }

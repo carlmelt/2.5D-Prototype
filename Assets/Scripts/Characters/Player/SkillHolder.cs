@@ -24,8 +24,12 @@ public class SkillHolder : MonoBehaviour
 
     private void Awake() {
         playerAnimator = GetComponent<Animator>();
-        animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
-        playerAnimator.runtimeAnimatorController = animatorOverrider;
+        // animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
+        // playerAnimator.runtimeAnimatorController = animatorOverrider;
+        if (playerAnimator != null) {
+            animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
+            playerAnimator.runtimeAnimatorController = animatorOverrider;
+        }
         skillCooldown = currentSkill.cooldown;
         //testing purpose:
         skill1 = currentSkill;
