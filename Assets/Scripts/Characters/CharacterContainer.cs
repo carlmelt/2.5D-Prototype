@@ -2,25 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterContainer : ScriptableObject
+//For storing chardata (if stats modified by lvl)
+public abstract class CharacterContainer : ScriptableObject
 {
-    // public string Name;
-    //public Character character; -> Model, Animasi
-    // public CharacterStats stats;
-    //public  Weapon characterWeapon;
-    // public SkillHolder characterSkill1;
-    // public SkillHolder characterSkill2;
-    // public SkillHolder characterUltimateSkill;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string Name;
+    // public PlayerStats character;
+    public CharacterStats stats;
+    public int Level;
+    // public float experiencePoint;
+    //public Weapon characterWeapon;
+    // public BaseSkill characterSkill1;
+    // public BaseSkill characterSkill2;
+    // public BaseSkill characterUltimateSkill;
 }
