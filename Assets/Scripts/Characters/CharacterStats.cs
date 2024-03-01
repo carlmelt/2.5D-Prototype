@@ -11,6 +11,8 @@ public abstract class CharacterStats : ScriptableObject
     public float criticalChance;
     public float criticalDamage;
     public int Speed;
+    public int Level;
+    public Sprite Model;
 
     //Player
     // public int Energy;
