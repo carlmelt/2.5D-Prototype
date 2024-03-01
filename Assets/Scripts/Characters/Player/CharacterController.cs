@@ -40,19 +40,19 @@ public class _CharacterController : MonoBehaviour
     {
 
         //Check left or right
-        if (canDash)
+        // if (canDash)
+        // {
+        // canDash = false;
+        if (facingRight)
         {
-            // canDash = false;
-            if (facingRight)
-            {
-                charRigid.AddForce(Vector3.right * dashForce);
-            }
-            else
-            {
-                charRigid.AddForce(Vector3.left * dashForce);
-            }
-            // StartCoroutine(DashCooldown(1f));
+            charRigid.AddForce(Vector3.right * dashForce);
         }
+        else
+        {
+            charRigid.AddForce(Vector3.left * dashForce);
+        }
+        // StartCoroutine(DashCooldown(1f));
+        // }
     }
 
     void Skill()

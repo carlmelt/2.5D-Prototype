@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4497d60726598b446ac14017542895be, type: 3}
+  m_Name: Barbruh
+  m_EditorClassIdentifier: 
+  Name: Barbruh
+  Health: 100
+  Attack: 5
+  Defense: 2
+  criticalChance: 5
+  criticalDamage: 20
+  Speed: 100
+  Energy: 100
+  energyRecovery: 0.2
