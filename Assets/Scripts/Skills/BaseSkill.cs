@@ -12,7 +12,7 @@ public abstract class BaseSkill : ScriptableObject
     public bool isUnlocked;
     public bool isUltimate;
     // Start is called before the first frame update
-    public virtual void Activate(SkillHolder owner){}
+    public virtual void Activate(PlayerSkill owner){}
 
     void Awake(){
         if (skillAnim) castTime = skillAnim.length;

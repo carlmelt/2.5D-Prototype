@@ -1159,6 +1159,7 @@ GameObject:
   - component: {fileID: 851143167}
   - component: {fileID: 851143165}
   - component: {fileID: 851143166}
+  - component: {fileID: 851143168}
   m_Layer: 0
   m_Name: Character_0
   m_TagString: Untagged
@@ -1271,6 +1272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 851143162}
   comboController: {fileID: 851143165}
+  playerContainer: {fileID: 11400000, guid: 0f7d5086686500c498ab8a03b81eb8c9, type: 2}
   walkSpeed: 40
 --- !u!114 &851143162
 MonoBehaviour:
@@ -1402,6 +1404,22 @@ MonoBehaviour:
   currentSkill: {fileID: 11400000, guid: 13508a4542c2a6b4ba910577663f920e, type: 2}
   canSkill: 1
   skillCooldown: 3
+  skillSpawnPoint: {fileID: 1663297046}
+--- !u!114 &851143168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851143157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9981e3d7c84aa9049a7a523bb4cf8b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 0}
+  canSkill: 1
+  skillCooldown: 0
   skillSpawnPoint: {fileID: 1663297046}
 --- !u!1 &1000471513
 GameObject:

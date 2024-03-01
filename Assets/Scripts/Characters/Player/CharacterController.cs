@@ -12,12 +12,13 @@ public class _CharacterController : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     public bool canDash = true;
     public Transform attackPoint;
-    public SkillHolder playerSkill;
+    // public SkillHolder playerSkill;
+    public PlayerSkill playerSkill;
 
     private void Awake()
     {
         charRigid = GetComponent<Rigidbody>();
-        playerSkill = GetComponent<SkillHolder>();
+        playerSkill = GetComponent<PlayerSkill>();
     }
 
     public void Move(Vector2 move)
@@ -55,10 +56,10 @@ public class _CharacterController : MonoBehaviour
         // }
     }
 
-    void Skill()
-    {
-        playerSkill.Skill();
-    }
+    // void Skill()
+    // {
+    //     playerSkill.Skill();
+    // }
 
     public IEnumerator DashCooldown(float Cd)
     {
