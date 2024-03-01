@@ -10,6 +10,7 @@ public class SkillSelector : MonoBehaviour
     // Start is called before the first frame update
     public static Button selectedButton;
     public SkillHolder playerSkillHolder;
+    public PlayerContainer playerContainer;
     public List<Button> buttons = new List<Button>();
     public bool isUltimate = false;
     void Awake()
@@ -23,19 +24,22 @@ public class SkillSelector : MonoBehaviour
 
     void Start(){
         // playerSkillHolder = FindObjectOfType<PlayerMovement>().GetComponent<SkillHolder>(); //If player exist, use this
-        playerSkillHolder = FindObjectOfType<SkillHolder>(); // For testing purpose, when player doesn't exist.
-        playerSkillHolder.skillChanged += UpdateButton;
+        // playerSkillHolder = FindObjectOfType<SkillHolder>(); // For testing purpose, when player doesn't exist.
+        // playerSkillHolder.skillChanged += UpdateButton;
+        playerContainer.skillChanged += UpdateButton;
         //Adjust initial button skill, so they match with player's skill.
-        List<BaseSkill> playerSkills = new List<BaseSkill>(){SkillHolder.skill1, SkillHolder.skill2, SkillHolder.ultimateSkill};
+        // List<BaseSkill> playerSkills = new List<BaseSkill>(){SkillHolder.skill1, SkillHolder.skill2, SkillHolder.ultimateSkill};
+        List<BaseSkill> playerSkills = new List<BaseSkill>(){playerContainer.skill1, playerContainer.skill2, playerContainer.ultimateSkill};
         for (int i = 0; i < buttons.Count; i++){
             if(playerSkills[i] != null) UpdateButton(i, playerSkills[i]);
-            Debug.Log(playerSkills[i]);
-            Debug.Log(buttons[i]);
+            // Debug.Log(playerSkills[i]);
+            // Debug.Log(buttons[i]);
         }
     }
 
     void OnDisable(){
-        playerSkillHolder.skillChanged -= UpdateButton;
+        // playerSkillHolder.skillChanged -= UpdateButton;
+        playerContainer.skillChanged -= UpdateButton;
     }
 
     void UpdateButton(int buttonIndex, BaseSkill buttonSkill){
@@ -51,12 +55,12 @@ public class SkillSelector : MonoBehaviour
 
         // btnColor.normalColor = Color.grey;
         // btn.colors = btnColor;
-        if (selectedButton != null){
-            SkillButton selectedSkillButton = selectedButton.GetComponent<SkillButton>();
-            selectedSkillButton.isSelected = false;
+        if (selectedButton != null){ // If there is already selected button, do:
+            SkillButton selectedSkillButton = selectedButton.GetComponent<SkillButton>(); //get reference to skillbutton
+            selectedSkillButton.isSelected = false; // then set selected to false
         }
-        btn.GetComponent<SkillButton>().isSelected = true;
-        selectedButton = btn;
+        btn.GetComponent<SkillButton>().isSelected = true; // The CURRENTLY selected button's isSelected will be set to true, thus darken it 
+        selectedButton = btn; //Then the currently selected button will be stored to selectedButton variable, so it can be deselected later.
 
         if (selectedButton.name == "Ultimate"){
             isUltimate = true;

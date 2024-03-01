@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class CharacterStats : ScriptableObject
 {
-    public string Name;
+    // public string Name;
     public int Health;
     public int Attack;
     public int Defense;
