@@ -5,7 +5,7 @@ using UnityEngine.U2D;
 
 public class ProjectileAnimator : MonoBehaviour
 {
-    public SkillHolder owner;
+    public PlayerSkill owner;
     [SerializeField] Vector3 offset;
     [SerializeField] float frameDelay;
     [SerializeField] float startDelay;

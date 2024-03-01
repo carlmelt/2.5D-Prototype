@@ -39,7 +39,7 @@ public class SkillHolder : MonoBehaviour
             // currentAnimation = skill.skillAnim;
             // Debug.Log(animatorOverrider.clips);
             // Debug.Log(currentAnimation);
-            currentSkill.Activate(this);
+            // currentSkill.Activate(this);
             canSkill = false;
             playerAnimator.SetTrigger("Skill");
             // GameObject particleGO = Instantiate(skillEffect, skillSpawnPoint.position, skillSpawnPoint.rotation);

@@ -11,9 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] _CharacterController characterController; //why the name is _CharacterController? it should be CharacterController
     //This because the name CharacterController is already used by Unity Engine
     [SerializeField] PlayerCombo comboController;
-
-    private float horizontalMove = 0f;
-    private float verticalMove = 0f;
+    public PlayerContainer playerContainer;
     private bool canAttack = true;
     private bool canWalk = true;
     public float walkSpeed = 40f;
@@ -73,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerInput.actions["Skill"].triggered)
         {//Skill Button
             // characterController.playerSkill.currentSkill = SkillHolder.skill1;
-            characterController.playerSkill.Skill();
+            characterController.playerSkill.Skill(playerContainer.skill1);
         }
     }
 
