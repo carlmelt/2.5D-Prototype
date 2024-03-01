@@ -7,8 +7,7 @@ public class SkillHolder : MonoBehaviour
 {
     public event Action<float> SkillCasted = delegate {};
     public event Action<float> StartCooldown = delegate {};
-    public delegate void SkillChanged(int targetIndex, BaseSkill newSkill);
-    public SkillChanged skillChanged;
+    public event Action<int, BaseSkill> skillChanged = delegate {};
     public Animator playerAnimator;
     public BaseSkill currentSkill;
     public static BaseSkill skill1;

@@ -43,7 +43,21 @@ public class SkillSelector : MonoBehaviour
     }
 
     void select(Button btn){
+        // ColorBlock btnColor = btn.colors;
+        // if (selectedButton != null){
+        //     btnColor.normalColor = Color.white;
+        //     selectedButton.colors = btnColor;
+        // }
+
+        // btnColor.normalColor = Color.grey;
+        // btn.colors = btnColor;
+        if (selectedButton != null){
+            SkillButton selectedSkillButton = selectedButton.GetComponent<SkillButton>();
+            selectedSkillButton.isSelected = false;
+        }
+        btn.GetComponent<SkillButton>().isSelected = true;
         selectedButton = btn;
+
         if (selectedButton.name == "Ultimate"){
             isUltimate = true;
         }

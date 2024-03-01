@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
@@ -9,6 +8,15 @@ public class SkillButton : MonoBehaviour
     public BaseSkill skill;
     public TextMeshProUGUI skillName;
     public TextMeshProUGUI skillDamage;
+    public GameObject selectedOverlay;
+    bool _isSelected;
+    public bool isSelected{
+        get => _isSelected;
+        set {
+            selectedOverlay?.SetActive(value);
+            _isSelected = value;
+        }
+    }
 
     //skill preview video
     // public GameObject skillPreview;
@@ -18,6 +26,7 @@ public class SkillButton : MonoBehaviour
         //access child that has object name "SkillName"
         // skillName = transform.FindChild("SkillName").GetComponent<TextMeshProUGUI>();
         skillName = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        isSelected = false;
     }
 
     // Update is called once per frame

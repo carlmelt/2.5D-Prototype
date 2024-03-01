@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SkillReplace : MonoBehaviour
 {
     public static BaseSkill selectedSkill;
+    SkillButton selectedSkillButton;
     public List<Button> buttons = new List<Button>();
     public bool isUltimate = false;
     void Awake()
@@ -18,7 +19,10 @@ public class SkillReplace : MonoBehaviour
     }
 
     void select(Button btn){
-        selectedSkill = btn.gameObject.GetComponent<SkillButton>().skill;
+        ClearSelection(selectedSkillButton);
+        selectedSkillButton = btn.gameObject.GetComponent<SkillButton>();
+        selectedSkillButton.isSelected = true;
+        selectedSkill = selectedSkillButton.skill;
         // if (selectedSkill.name == "Ultimate"){
         //     isUltimate = true;
         // }
@@ -27,11 +31,18 @@ public class SkillReplace : MonoBehaviour
         // }
     }
 
+    void ClearSelection(SkillButton targetButton){
+        if (targetButton != null){
+            targetButton.isSelected = false;
+        }
+    }
+
     public void Replace(){
         // SkillHolder playerSkill = FindObjectOfType<PlayerMovement>().GetComponent<SkillHolder>(); // Use this if player exist.
         SkillHolder playerSkill = FindObjectOfType<SkillHolder>();
         BaseSkill selectedButtonSkill = SkillSelector.selectedButton.GetComponent<SkillButton>().skill;
         if (playerSkill != null) playerSkill.ChangeSkill(selectedButtonSkill, selectedSkill);
-
+        ClearSelection(selectedSkillButton);
+        // ClearSelection(SkillSelector.selectedButton.GetComponent<SkillButton>());
     }
 }
