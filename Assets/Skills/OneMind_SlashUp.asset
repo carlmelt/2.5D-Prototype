@@ -19,6 +19,6 @@ MonoBehaviour:
   cooldown: 5
   isUnlocked: 0
   isUltimate: 0
-  isCooldown: 0
+  isCooldown: 1
   projectile: {fileID: 3182325743491520071, guid: 338abc035d7430b4f9b3a60bbda80f91,
     type: 3}
