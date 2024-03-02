@@ -11,6 +11,7 @@ public abstract class BaseSkill : ScriptableObject
     public float cooldown;
     public bool isUnlocked;
     public bool isUltimate;
+    public bool isCooldown; //New for skill cooldown check
     // Start is called before the first frame update
     public virtual void Activate(PlayerSkill owner){}
 

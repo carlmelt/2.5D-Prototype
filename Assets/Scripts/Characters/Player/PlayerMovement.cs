@@ -19,10 +19,12 @@ public class PlayerMovement : MonoBehaviour
     float cooldownTime = 0;
     private Vector2 playerMove;
     float dashForce = 500f;
+    
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+
     }
 
     void Start(){
@@ -68,11 +70,19 @@ public class PlayerMovement : MonoBehaviour
         }
         comboController.playerAnimator.SetBool("isWalking", (Mathf.Abs(playerMove.x) > 0 || (Mathf.Abs(playerMove.y)) > 0));//refactor
 
-        if (playerInput.actions["Skill"].triggered)
+        if (playerInput.actions["Skill1"].triggered)
         {//Skill Button
             // characterController.playerSkill.currentSkill = SkillHolder.skill1;
             characterController.playerSkill.Skill(playerContainer.skill1);
         }
+        if (playerInput.actions["Skill2"].triggered)
+        {//Skill Button
+            // characterController.playerSkill.currentSkill = SkillHolder.skill1;
+            characterController.playerSkill.Skill(playerContainer.skill2);
+        }
+
+        // characterController.playerSkill.checkSkillCooldown(playerContainer.skill1); 
+        // characterController.playerSkill.checkSkillCooldown(playerContainer.skill2);
     }
 
     void FixedUpdate()
