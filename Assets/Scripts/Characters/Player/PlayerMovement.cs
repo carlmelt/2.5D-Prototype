@@ -8,17 +8,24 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [Header("Player Components")]
     [SerializeField] _CharacterController characterController; //why the name is _CharacterController? it should be CharacterController
     //This because the name CharacterController is already used by Unity Engine
     [SerializeField] PlayerCombo comboController;
-    public PlayerContainer playerContainer;
-    private bool canAttack = true;
-    private bool canWalk = true;
-    public float walkSpeed = 40f;
     private PlayerInput playerInput;
+    public PlayerContainer playerContainer;
+    
+    [Header("Player Attributes")]
     float cooldownTime = 0;
     private Vector2 playerMove;
+    public float walkSpeed = 40f;
     float dashForce = 500f;
+
+    [Header("Player Conditions")]
+    private bool canAttack = true;
+    private bool canWalk = true;
+    // public bool isInvincible = false;
     
 
     private void Awake()
@@ -58,13 +65,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (playerInput.actions["Dash"].triggered)
         {//Dash Button
-            if (characterController.canDash == true)
-            {
-                comboController.playerAnimator.SetTrigger("Dash");
-                characterController.Dash(dashForce);
-                characterController.canDash = false;
-                StartCoroutine(characterController.DashCooldown(1f));
-            }
+            characterController.playerSkill.Skill(playerContainer.dashSkill);
+
+
             comboController.currentCombo = 0;
 
         }

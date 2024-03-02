@@ -12,6 +12,7 @@ public class PlayerContainer : CharacterContainer
     public BaseSkill skill1;
     public BaseSkill skill2;
     public BaseSkill ultimateSkill;
+    public BaseSkill dashSkill;
     public void ChangeSkill(BaseSkill oldSkill, BaseSkill newSkill){
         int skillTargetIndex;
         

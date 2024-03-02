@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private bool isRun;
     public Transform attackPoint;
+    
     public float attackRange = 0.5f;
     // Start is called before the first frame update
     void Awake()

@@ -11,6 +11,7 @@ public class _CharacterController : MonoBehaviour
     private bool facingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
     public bool canDash = true;
+    public bool isInvincible = false;
     public Transform attackPoint;
     // public SkillHolder playerSkill;
     public PlayerSkill playerSkill;
@@ -75,6 +76,14 @@ public class _CharacterController : MonoBehaviour
     //         canDash = true;
     //     }
     // }
+
+    
+   public IEnumerator Invicible(float duration, _CharacterController player){
+        player.isInvincible = true;
+        yield return new WaitForSeconds(duration);
+        player.isInvincible = false;
+        Debug.Log("Invicible Time Ended");
+    }
 
     private void Flip()
     {
