@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerSkill : MonoBehaviour
 {
     public event Action<float> SkillCasted = delegate {};
-    public event Action<float> StartCooldown = delegate {};
+    public event Action<float, BaseSkill> StartCooldown = delegate {};
     public Animator playerAnimator;
     public bool canSkill = true;
     [SerializeField] private float currentCooldown;
@@ -39,6 +39,7 @@ public class PlayerSkill : MonoBehaviour
             // GameObject particleGO = Instantiate(skillEffect, skillSpawnPoint.position, skillSpawnPoint.rotation);
             // Destroy(particleGO, 2f);
             SkillCasted.Invoke(skillToUse.castTime);
+            StartCooldown.Invoke(skillCooldown, skillToUse);
             StartCoroutine(SkillCooldown(skillCooldown, skillToUse));
             // checkSkillCooldown(skillToUse);
         }
@@ -46,12 +47,12 @@ public class PlayerSkill : MonoBehaviour
 
     IEnumerator SkillCooldown(float Cd, BaseSkill skill)
     {
-        float remainingTime = Cd;
-        while (remainingTime > 0)
+        float remainingTime = Cd + 0.1f;
+        while (remainingTime > 0.1f)
         {
-            Debug.Log("Remaining Time: " + remainingTime);
+            // Debug.Log("Remaining Time: " + remainingTime);
             remainingTime -= Time.fixedDeltaTime;
-            Debug.Log("Skill is on cooldown for " + remainingTime + " seconds");
+            // Debug.Log("Skill is on cooldown for " + remainingTime + " seconds");
             yield return new WaitForFixedUpdate();
         }
         // yield return null;
@@ -60,18 +61,4 @@ public class PlayerSkill : MonoBehaviour
         Debug.Log("Skill Ready");
     }
 
-    public void checkSkillCooldown(BaseSkill skill){
-        if (!skill.isCooldown) return;
-        else {
-            float cd = currentCooldown;
-            cd -= Time.fixedDeltaTime;
-            currentCooldown = cd;
-            Debug.Log("Skill is on cooldown for " + cd + " seconds");
-            // while(Time.time - cd > skill.cooldown) {
-            //     cd -= Time.fixedDeltaTime;
-            // }
-            // cd -= Time.fixedDeltaTime;
-            // Debug.Log("Skill is on cooldown for " + cd + " seconds");
-        }
-    }
 }

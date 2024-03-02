@@ -33,12 +33,12 @@ public class SkillButton : MonoBehaviour
     void Update()
     {
         if(skill != null){
-            _update_button();
+            UpdateButton();
             // skillDamage.text = skill.damage.ToString();
         }
     }
 
-    public void _update_button(){ // update button info
+    public void UpdateButton(){ // update button info
         skillName.text = skill.skillName;
     }
 }
