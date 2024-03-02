@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class _CharacterController : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 500f;
+    [Header("Player Components")]
+    public AttackController playerCombo;
+    public SkillController playerSkill;
+
+    [Header("Movement Properties")] //might be moved to new movement script
     [Range(0, .3f)][SerializeField] private float m_movementSmoother = .05f;
     private Rigidbody charRigid;
     private bool facingRight = true;
@@ -13,13 +17,12 @@ public class _CharacterController : MonoBehaviour
     public bool canDash = true;
     public bool isInvincible = false;
     public Transform attackPoint;
-    public PlayerSkill playerSkill;
     // public SkillHolder playerSkill;
 
     private void Awake()
     {
         charRigid = GetComponent<Rigidbody>();
-        playerSkill = GetComponent<PlayerSkill>();
+        playerSkill = GetComponent<SkillController>();
     }
 
     public void Move(Vector2 move)
@@ -80,10 +83,10 @@ public class _CharacterController : MonoBehaviour
     
    public IEnumerator Invicible(float duration, _CharacterController player){
         player.isInvincible = true;
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+        // Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
         yield return new WaitForSeconds(duration);
         player.isInvincible = false;
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+        // Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
         Debug.Log("Invicible Time Ended");
     }
 

@@ -5,28 +5,23 @@ using UnityEngine.UI;
 
 public class SkillCooldownUI : MonoBehaviour
 {
-    public PlayerSkill playerSkill;
-    Button pressedButton;
+    public SkillController playerSkill;
     public List<BaseSkill> skills;
     public List<Button> skillButtons = new List<Button>{};
 
     void Start(){
-        playerSkill = FindObjectOfType<PlayerSkill>();
+        playerSkill = FindObjectOfType<SkillController>();
         playerSkill.StartCooldown += (cd, skill) => StartCoroutine(OverlayCooldown(cd, skill));
         foreach (Transform child in transform){
             skillButtons.Add(child.GetComponent<Button>());
         }
-        PlayerMovement player = playerSkill.GetComponent<PlayerMovement>();
+        Player player = playerSkill.GetComponent<Player>();
         skills = new List<BaseSkill> {player.playerContainer.skill1, player.playerContainer.skill2, player.playerContainer.ultimateSkill, player.playerContainer.dashSkill};
     }
 
     void OnDisable(){
         playerSkill.StartCooldown -= (cd, skill) => StartCoroutine(OverlayCooldown(cd, skill));
     }
-
-    // public void ButtonUpdate(Button button){
-    //     pressedButton = button;
-    // }
 
     IEnumerator OverlayCooldown(float cooldown, BaseSkill skillUsed){
         float durationLeft = cooldown;

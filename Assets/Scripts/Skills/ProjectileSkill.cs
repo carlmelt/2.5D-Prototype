@@ -8,7 +8,7 @@ using UnityEngine.VFX;
 public class ProjectileSkill : BaseSkill
 {
     public GameObject projectile;
-    public override void Activate(PlayerSkill owner){
+    public override void Activate(SkillController owner){
         Transform spawnPoint = owner.skillSpawnPoint;
         GameObject projectileSpawn = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
         ProjectileAnimator _projectile = projectileSpawn.GetComponent<ProjectileAnimator>();

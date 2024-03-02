@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSkill : MonoBehaviour
+public class SkillController : MonoBehaviour
 {
     public event Action<float> SkillCasted = delegate {};
     public event Action<float, BaseSkill> StartCooldown = delegate {};
-    public Animator playerAnimator;
+    private Animator playerAnimator;
     public bool canSkill = true;
    
     public float skillCooldown;
@@ -24,8 +24,7 @@ public class PlayerSkill : MonoBehaviour
     }
     public void Skill(BaseSkill skillToUse){
         if(skillToUse.isCooldown) return;
-
-
+        //---
         if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SkillCast")){
             //Reference the skill cooldown
             skillCooldown = skillToUse.cooldown;
@@ -46,13 +45,9 @@ public class PlayerSkill : MonoBehaviour
         float remainingTime = Cd + 0.1f;
         while (remainingTime > 0.1f)
         {
-            // Debug.Log("Remaining Time: " + remainingTime);
             remainingTime -= Time.fixedDeltaTime;
-            // Debug.Log("Skill is on cooldown for " + remainingTime + " seconds");
             yield return new WaitForFixedUpdate();
         }
-        // yield return null;
-        // StartCooldown.Invoke(Cd);
         skill.isCooldown = false;
         Debug.Log("Skill Ready");
     }
