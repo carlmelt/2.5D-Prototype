@@ -19,3 +19,4 @@ MonoBehaviour:
   skill1: {fileID: 11400000, guid: e861e920b40a57a46b304517f6ef99fc, type: 2}
   skill2: {fileID: 11400000, guid: c71db453560504a4e95741ade07059fd, type: 2}
   ultimateSkill: {fileID: 11400000, guid: 0f204b5d3e6f42d45a0b045e70dd73a9, type: 2}
+  dashSkill: {fileID: 11400000, guid: 7687e4e5c9ed4a24d9cef39a9ee58a36, type: 2}

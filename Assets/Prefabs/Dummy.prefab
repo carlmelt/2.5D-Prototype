@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1863492824397391138}
   - component: {fileID: 2997665006378448815}
   - component: {fileID: 2183873442136916109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -146,6 +146,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8932167746283049677}
     m_Modifications:
+    - target: {fileID: 957702543127835567, guid: 042e2f03df1f2a749813fe920b6f8014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1505648473224080426, guid: 042e2f03df1f2a749813fe920b6f8014,
         type: 3}
       propertyPath: m_Pivot.x
@@ -261,6 +266,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1816920496496255585, guid: 042e2f03df1f2a749813fe920b6f8014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407140573393909813, guid: 042e2f03df1f2a749813fe920b6f8014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337367199589175835, guid: 042e2f03df1f2a749813fe920b6f8014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4303531762801279876, guid: 042e2f03df1f2a749813fe920b6f8014,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -270,6 +290,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541102388614299238, guid: 042e2f03df1f2a749813fe920b6f8014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889940349431092876, guid: 042e2f03df1f2a749813fe920b6f8014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,8 +13,8 @@ public class _CharacterController : MonoBehaviour
     public bool canDash = true;
     public bool isInvincible = false;
     public Transform attackPoint;
-    // public SkillHolder playerSkill;
     public PlayerSkill playerSkill;
+    // public SkillHolder playerSkill;
 
     private void Awake()
     {
@@ -80,8 +80,10 @@ public class _CharacterController : MonoBehaviour
     
    public IEnumerator Invicible(float duration, _CharacterController player){
         player.isInvincible = true;
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
         yield return new WaitForSeconds(duration);
         player.isInvincible = false;
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
         Debug.Log("Invicible Time Ended");
     }
 

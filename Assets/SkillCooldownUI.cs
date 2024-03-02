@@ -17,7 +17,7 @@ public class SkillCooldownUI : MonoBehaviour
             skillButtons.Add(child.GetComponent<Button>());
         }
         PlayerMovement player = playerSkill.GetComponent<PlayerMovement>();
-        skills = new List<BaseSkill> {player.playerContainer.skill1, player.playerContainer.skill2, player.playerContainer.ultimateSkill};
+        skills = new List<BaseSkill> {player.playerContainer.skill1, player.playerContainer.skill2, player.playerContainer.ultimateSkill, player.playerContainer.dashSkill};
     }
 
     void OnDisable(){
@@ -34,7 +34,7 @@ public class SkillCooldownUI : MonoBehaviour
         while (durationLeft > 0){
             durationLeft -= Time.fixedDeltaTime;
             durationLeft = Mathf.Max(0, durationLeft);
-            Debug.Log(durationLeft);
+            // Debug.Log(durationLeft);
             CDOverlay.fillAmount = durationLeft / cooldown;
             yield return new WaitForFixedUpdate();
         }
