@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.Animations;
 using UnityEngine;
 
-public class PlayerCombo : MonoBehaviour
+public class AttackController : MonoBehaviour
 {
-    public Animator playerAnimator;
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public float attackDamage = 5f;
@@ -13,7 +12,7 @@ public class PlayerCombo : MonoBehaviour
     [SerializeField] private int comboCount = 3;
     public int currentCombo = 0;
     
-    public void Attack(){//refactor
+    public void Attack(Animator playerAnimator){//refactor
         playerAnimator.SetTrigger("Attack"+currentCombo.ToString());
         currentCombo += 1;
         if (currentCombo >= comboCount) currentCombo = 0;

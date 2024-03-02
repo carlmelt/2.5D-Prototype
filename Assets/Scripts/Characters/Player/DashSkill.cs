@@ -8,11 +8,11 @@ public class DashSkill : BaseSkill
 
     public float dashForce;
     public float InvicibleTime = 0.25f;
-    public override void Activate(PlayerSkill owner)
+    public override void Activate(SkillController owner)
     {
-       _CharacterController player = owner.GetComponent<_CharacterController>();
+       MovementController player = owner.GetComponent<MovementController>();
        player.Dash(dashForce);
-       player.StartCoroutine(player.Invicible(InvicibleTime, player));
+       player.StartCoroutine(player.GetComponent<PlayerController>().Invincible(InvicibleTime));
     }
 
     
