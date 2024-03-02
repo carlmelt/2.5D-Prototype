@@ -9,7 +9,7 @@ public class PlayerSkill : MonoBehaviour
     public event Action<float, BaseSkill> StartCooldown = delegate {};
     public Animator playerAnimator;
     public bool canSkill = true;
-    [SerializeField] private float currentCooldown;
+   
     public float skillCooldown;
     public Transform skillSpawnPoint;
     AnimatorOverrideController animatorOverrider;
@@ -27,21 +27,17 @@ public class PlayerSkill : MonoBehaviour
 
 
         if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SkillCast")){
+            //Reference the skill cooldown
             skillCooldown = skillToUse.cooldown;
-            currentCooldown = skillCooldown;
+            //Set the skill animation
             animatorOverrider["TestFireSlash"] = skillToUse.skillAnim; //The default skill anim is TestFireSlash
-            // currentAnimation = skill.skillAnim;
-            // Debug.Log(animatorOverrider.clips);
-            // Debug.Log(currentAnimation);
+            //Activate the skill
             skillToUse.Activate(this);
-            skillToUse.isCooldown = true;
-            playerAnimator.SetTrigger("Skill");
-            // GameObject particleGO = Instantiate(skillEffect, skillSpawnPoint.position, skillSpawnPoint.rotation);
-            // Destroy(particleGO, 2f);
-            SkillCasted.Invoke(skillToUse.castTime);
-            StartCooldown.Invoke(skillCooldown, skillToUse);
-            StartCoroutine(SkillCooldown(skillCooldown, skillToUse));
-            // checkSkillCooldown(skillToUse);
+            skillToUse.isCooldown = true; //Set the skill on cooldown
+            playerAnimator.SetTrigger("Skill");//Play the skill animation
+            SkillCasted.Invoke(skillToUse.castTime);//Invoke the skill casted event that can freeze the player
+            StartCooldown.Invoke(skillCooldown, skillToUse); //Invoke the skill cooldown event for UI cooldown
+            StartCoroutine(SkillCooldown(skillCooldown, skillToUse)); //Start the skill cooldown
         }
     }
 
@@ -60,5 +56,6 @@ public class PlayerSkill : MonoBehaviour
         skill.isCooldown = false;
         Debug.Log("Skill Ready");
     }
+
 
 }
