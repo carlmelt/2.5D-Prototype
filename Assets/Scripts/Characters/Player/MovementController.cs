@@ -12,12 +12,14 @@ public class MovementController : MonoBehaviour
     [Header("Movement Related Var")]
     private Rigidbody charRigid;
     private bool facingRight = true;
+    private Transform attackPoint;
     private Vector3 m_Velocity = Vector3.zero;
     public float walkSpeed = 40f;
     [Range(0, .3f)][SerializeField] private float m_movementSmoother = .05f;
 
     void Awake(){
         charRigid = GetComponent<Rigidbody>();
+        attackPoint = GetComponent<AttackController>().attackPoint;
     }
 
     //---------------------------------------------------------------------------------------------------------------------------
@@ -43,6 +45,6 @@ public class MovementController : MonoBehaviour
         currentScale.x *= -1;
         transform.localScale = currentScale;
         //rotate attack point
-        // attackPoint.Rotate(0f, 180f, 0f);
+        attackPoint.Rotate(0f, 180f, 0f);
     }
 }
