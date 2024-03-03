@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UIElements.Image;
 
 public abstract class BaseSkill : ScriptableObject
 {
     public string skillName;
     public int damage;
+    public Sprite skillIcon;
     public AnimationClip skillAnim;
     public float castTime;
     public float cooldown;

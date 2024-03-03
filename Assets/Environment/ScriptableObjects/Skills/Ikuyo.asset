@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Ikuyo
   damage: 0
+  skillIcon: {fileID: 614825144, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
   skillAnim: {fileID: 7400000, guid: 801450433c0c7344192e99915b51e794, type: 2}
-  castTime: 0
-  cooldown: 2
+  castTime: 0.36666667
+  cooldown: 1
   isUnlocked: 0
   isUltimate: 0
   isCooldown: 0

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Fire Slash
   damage: 5
+  skillIcon: {fileID: -1830695433, guid: 3dfadf9e83cf5c7448e19574f0d0382e, type: 3}
   skillAnim: {fileID: 7400000, guid: ef235106462b5174c863579a93fba454, type: 2}
   castTime: 0.55
   cooldown: 1
