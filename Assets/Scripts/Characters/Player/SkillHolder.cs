@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class SkillHolder : MonoBehaviour
 {
+    //Event for Observer Pattern
     public event Action<float> SkillCasted = delegate {};
     public event Action<float> StartCooldown = delegate {};
     public event Action<int, BaseSkill> skillChanged = delegate {};
+
+    // Reference to player's attributes
     public Animator playerAnimator;
     public BaseSkill currentSkill;
     public static BaseSkill skill1;
