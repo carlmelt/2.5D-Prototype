@@ -13,6 +13,8 @@ public class PlayerContainer : CharacterContainer
     public BaseSkill skill2;
     public BaseSkill ultimateSkill;
     public BaseSkill dashSkill;
+
+    //Change the skill to the new skill
     public void ChangeSkill(BaseSkill oldSkill, BaseSkill newSkill){
         int skillTargetIndex;
         
@@ -34,6 +36,6 @@ public class PlayerContainer : CharacterContainer
             Debug.Log("Unknown Error. No target skill/ultimate found.");
             return;
         }
-        skillChanged?.Invoke(skillTargetIndex, newSkill);
+        skillChanged?.Invoke(skillTargetIndex, newSkill); //Subscribe to the event in SkillSelector Script
     }
 }

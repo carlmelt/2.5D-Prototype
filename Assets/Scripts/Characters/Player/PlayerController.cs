@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
             playerAttack.currentCombo = 0;
 
         }
+
+        //Skill Button
         if (playerInput.actions["Skill1"].triggered) playerSkill.Skill(playerContainer.skill1);
         if (playerInput.actions["Skill2"].triggered) playerSkill.Skill(playerContainer.skill2);
         

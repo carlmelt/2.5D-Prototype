@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    /*============================================NOTES============================================
+    This script is responsible for containing the player's components and properties. 
+    It is also responsible for handling the player's stats and skills.
+    
+    */
     public PlayerController playerController;
     public PlayerContainer playerContainer;
     //public StatModifier statMod;

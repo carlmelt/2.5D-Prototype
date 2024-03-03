@@ -3,6 +3,35 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+/* ////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+   This Script is not used in the game. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////
+*/
 public class _CharacterController : MonoBehaviour
 {
     [Header("Player Components")]

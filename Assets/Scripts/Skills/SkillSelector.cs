@@ -26,19 +26,20 @@ public class SkillSelector : MonoBehaviour
         // playerSkillHolder = FindObjectOfType<PlayerMovement>().GetComponent<SkillHolder>(); //If player exist, use this
         // playerSkillHolder = FindObjectOfType<SkillHolder>(); // For testing purpose, when player doesn't exist.
         // playerSkillHolder.skillChanged += UpdateButton;
-        playerContainer.skillChanged += UpdateButton;
         //Adjust initial button skill, so they match with player's skill.
         // List<BaseSkill> playerSkills = new List<BaseSkill>(){SkillHolder.skill1, SkillHolder.skill2, SkillHolder.ultimateSkill};
+
+
+        playerContainer.skillChanged += UpdateButton; //Add listener to skillChanged event
         List<BaseSkill> playerSkills = new List<BaseSkill>(){playerContainer.skill1, playerContainer.skill2, playerContainer.ultimateSkill};
         for (int i = 0; i < buttons.Count; i++){
             if(playerSkills[i] != null) UpdateButton(i, playerSkills[i]);
-            // Debug.Log(playerSkills[i]);
-            // Debug.Log(buttons[i]);
+  
         }
     }
 
     void OnDisable(){
-        // playerSkillHolder.skillChanged -= UpdateButton;
+        
         playerContainer.skillChanged -= UpdateButton;
     }
 
