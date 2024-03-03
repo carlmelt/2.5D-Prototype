@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
         //Skill Button
         if (playerInput.actions["Skill1"].triggered) playerSkill.Skill(playerContainer.skill1);
         if (playerInput.actions["Skill2"].triggered) playerSkill.Skill(playerContainer.skill2);
+        if (playerInput.actions["Ultimate"].triggered) playerSkill.Skill(playerContainer.ultimateSkill);
         
     }
 
