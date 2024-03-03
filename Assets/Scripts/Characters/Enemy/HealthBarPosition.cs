@@ -8,7 +8,7 @@ public class HealthBarPosition : MonoBehaviour
     public float offset;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

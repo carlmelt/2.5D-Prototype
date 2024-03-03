@@ -10,9 +10,11 @@ public class SkillButton : MonoBehaviour
     public TextMeshProUGUI skillDamage;
     public GameObject selectedOverlay;
     bool _isSelected;
-    public bool isSelected{
+    public bool isSelected
+    {
         get => _isSelected;
-        set {
+        set
+        {
             selectedOverlay?.SetActive(value);
             _isSelected = value;
         }
@@ -32,13 +34,15 @@ public class SkillButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(skill != null){
+        if (skill != null)
+        {
             UpdateButton();
             // skillDamage.text = skill.damage.ToString();
         }
     }
 
-    public void UpdateButton(){ // update button info
+    public void UpdateButton()
+    { // update button info
         skillName.text = skill.skillName;
     }
 }

@@ -8,31 +8,36 @@ using UnityEngine;
 public class PlayerContainer : CharacterContainer
 {
     public float experiencePoint;
-    public event Action<int, BaseSkill> skillChanged = delegate {};
+    public event Action<int, BaseSkill> skillChanged = delegate { };
     public BaseSkill skill1;
     public BaseSkill skill2;
     public BaseSkill ultimateSkill;
     public BaseSkill dashSkill;
 
     //Change the skill to the new skill
-    public void ChangeSkill(BaseSkill oldSkill, BaseSkill newSkill){
+    public void ChangeSkill(BaseSkill oldSkill, BaseSkill newSkill)
+    {
         int skillTargetIndex;
-        
+
         if (skill1 == newSkill || skill2 == newSkill) return;
 
-        if (skill1 == oldSkill) {
+        if (skill1 == oldSkill)
+        {
             skill1 = newSkill;
             skillTargetIndex = 0;
         }
-        else if(skill2 == oldSkill){
+        else if (skill2 == oldSkill)
+        {
             skill2 = newSkill;
             skillTargetIndex = 1;
         }
-        else if (ultimateSkill == oldSkill){
+        else if (ultimateSkill == oldSkill)
+        {
             ultimateSkill = newSkill;
             skillTargetIndex = 2;
         }
-        else{
+        else
+        {
             Debug.Log("Unknown Error. No target skill/ultimate found.");
             return;
         }

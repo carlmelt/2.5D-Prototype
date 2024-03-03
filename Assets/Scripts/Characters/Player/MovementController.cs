@@ -17,7 +17,8 @@ public class MovementController : MonoBehaviour
     public float walkSpeed = 40f;
     [Range(0, .3f)][SerializeField] private float m_movementSmoother = .05f;
 
-    void Awake(){
+    void Awake()
+    {
         charRigid = GetComponent<Rigidbody>();
         attackPoint = GetComponent<AttackController>().attackPoint;
     }
@@ -36,7 +37,7 @@ public class MovementController : MonoBehaviour
 
     public void Dash(float dashForce)
     {
-        Vector3 Direction = facingRight ? Vector3.right: Vector3.left; //change to player's direction based on player's facing direction
+        Vector3 Direction = facingRight ? Vector3.right : Vector3.left; //change to player's direction based on player's facing direction
         charRigid.AddForce(Direction * dashForce); //add force to the player
     }
 

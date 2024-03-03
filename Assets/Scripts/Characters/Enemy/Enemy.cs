@@ -6,36 +6,42 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameObject deadParticle;
-    public event Action Damage = delegate {};
-    public event Action<int> Healed = delegate {};
-    public event Action Dead = delegate {};
+    public event Action Damage = delegate { };
+    public event Action<int> Healed = delegate { };
+    public event Action Dead = delegate { };
     [SerializeField] int _maxHealth;
     public int MaxHealth => _maxHealth;
     int _currentHealth;
-    public int CurrentHealth{
+    public int CurrentHealth
+    {
         get => _currentHealth;
-        set {
+        set
+        {
             if (value > _maxHealth) value = _maxHealth;
             _currentHealth = value;
         }
     }
-    
-    void Awake(){
+
+    void Awake()
+    {
         CurrentHealth = _maxHealth;
     }
 
-    public void Damaged(int amount){
+    public void Damaged(int amount)
+    {
         _currentHealth -= amount;
         Damage?.Invoke();
-        if (_currentHealth <= 0){
+        if (_currentHealth <= 0)
+        {
             Die();
         }
-        Debug.Log("Damaged! :" + amount +", Current Health:" + _currentHealth);
+        Debug.Log("Damaged! :" + amount + ", Current Health:" + _currentHealth);
     }
 
-    void Die(){
+    void Die()
+    {
         Dead.Invoke();
-        GameObject deadFx = Instantiate(deadParticle, transform.position, new Quaternion(-90,0,0,90));
+        GameObject deadFx = Instantiate(deadParticle, transform.position, new Quaternion(-90, 0, 0, 90));
         Destroy(deadFx, 3);
         Destroy(gameObject);
     }

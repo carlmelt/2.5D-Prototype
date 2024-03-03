@@ -17,11 +17,13 @@ public class PlayerController : MonoBehaviour
     private bool canAttack = true;
     private bool canWalk = true;
     private bool isInvincible = false;
-    public bool _isInvincible {
+    public bool _isInvincible
+    {
         get => isInvincible;
-        set {
-             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), value);
-             isInvincible = value;
+        set
+        {
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), value);
+            isInvincible = value;
         }
     }
 
@@ -47,11 +49,13 @@ public class PlayerController : MonoBehaviour
         DetectInput();
     }
 
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
         HandleMove();
     }
 
-    void DetectInput(){
+    void DetectInput()
+    {
         if (canWalk)
         {
             playerMove = playerInput.actions["Move"].ReadValue<Vector2>();
@@ -78,10 +82,11 @@ public class PlayerController : MonoBehaviour
         if (playerInput.actions["Skill1"].triggered) playerSkill.Skill(playerContainer.skill1);
         if (playerInput.actions["Skill2"].triggered) playerSkill.Skill(playerContainer.skill2);
         if (playerInput.actions["Ultimate"].triggered) playerSkill.Skill(playerContainer.ultimateSkill);
-        
+
     }
 
-    void HandleMove(){
+    void HandleMove()
+    {
         playerMovement.Move(new Vector2(playerMove.x, playerMove.y).normalized * walkSpeed * Time.fixedDeltaTime);
 
         if (Time.time - attackCooldown > 0.3f)
@@ -99,14 +104,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Freeze(float timeOffset=0.3f){
+    void Freeze(float timeOffset = 0.3f)
+    {
         canWalk = false;
         canAttack = false;
         playerMove = Vector2.zero;
         attackCooldown = Time.time + (timeOffset - 0.3f);  //ntar
     }
 
-    public IEnumerator Invincible(float duration){
+    public IEnumerator Invincible(float duration)
+    {
         _isInvincible = true;
         yield return new WaitForSeconds(duration);
         _isInvincible = false;

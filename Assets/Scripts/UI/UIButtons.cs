@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class UIButtons : MonoBehaviour
 {
-  
-  public void Startbtn(){
+
+  public void Startbtn()
+  {
     SceneManager.LoadScene("Skill");
   }
-    public void SkillBtn(){
-       SceneManager.LoadScene("Menu");
-    }
+  public void SkillBtn()
+  {
+    SceneManager.LoadScene("Menu");
+  }
 }

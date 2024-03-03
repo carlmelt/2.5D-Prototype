@@ -16,7 +16,8 @@ public class SwordSlash : MonoBehaviour
     public VisualEffect slashEffect;
     private Rigidbody rb;
 
-    private void Awake() {
+    private void Awake()
+    {
         // slashEffect = GetComponent<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
     }

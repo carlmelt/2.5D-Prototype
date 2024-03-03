@@ -10,29 +10,35 @@ public class Stats : MonoBehaviour
     [SerializeField] private Slider healthBar;
     Enemy entity;
 
-    void Awake(){
+    void Awake()
+    {
         entity = GetComponent<Enemy>();
     }
 
-    void Start(){
+    void Start()
+    {
         healthBar.maxValue = entity.MaxHealth;
         healthBar.value = entity.CurrentHealth;
     }
-    
-    void OnEnable(){
+
+    void OnEnable()
+    {
         entity.Damage += UpdateBar;
         entity.Damage += debugging;
     }
 
-    void OnDisable(){
+    void OnDisable()
+    {
         entity.Damage -= UpdateBar;
         entity.Damage -= debugging;
     }
 
-    void debugging(){
+    void debugging()
+    {
         Debug.Log("Ngakak Cik!");
     }
-    void UpdateBar(){
+    void UpdateBar()
+    {
         Debug.Log("Updating Health Bar");
         healthBar.value = entity.CurrentHealth;
     }

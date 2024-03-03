@@ -20,11 +20,13 @@ public class ProjectileAnimator : MonoBehaviour
     }
 
     // Update is called once per frame
-    public IEnumerator Animate(){
+    public IEnumerator Animate()
+    {
         // transform.position += offset;
         yield return new WaitForSeconds(startDelay);
         transform.position = owner.skillSpawnPoint.transform.position + offset;
-        for (int i = 0; i<sprites.Length; i++){
+        for (int i = 0; i < sprites.Length; i++)
+        {
             yield return new WaitForSeconds(frameDelay);
             spriteRenderer.sprite = sprites[i];
         }

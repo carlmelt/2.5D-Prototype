@@ -20,7 +20,7 @@ public class AttackController : MonoBehaviour
     public int currentCombo = 0;
 
 
-// Replace the Combo system here with the new combo system based on playerContainer`s Properties
+    // Replace the Combo system here with the new combo system based on playerContainer`s Properties
     public void Attack(Animator playerAnimator)
     {//refactor
         playerAnimator.SetTrigger("Attack" + currentCombo.ToString());
