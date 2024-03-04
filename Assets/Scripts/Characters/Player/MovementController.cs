@@ -10,8 +10,8 @@ public class MovementController : MonoBehaviour
 {
     // --------------------------------------------REFACTOR----------------------------------------------------------
     [Header("Movement Related Var")]
-    private Rigidbody charRigid;
-    private bool facingRight = true;
+    public Rigidbody charRigid;
+    public bool facingRight = true;
     private Transform attackPoint;
     private Vector3 m_Velocity = Vector3.zero;
     public float walkSpeed = 40f;
