@@ -24,10 +24,6 @@ public class SkillUI : MonoBehaviour
         addImageUI();
 
     }
-
-    private void Update()
-    {
-    }
     void OnDisable()
     {
         playerSkill.StartCooldown -= (cd, skill) => StartCoroutine(OverlayCooldown(cd, skill));

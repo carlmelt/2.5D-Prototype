@@ -28,5 +28,6 @@ public abstract class BaseSkill : ScriptableObject
 
 public interface IChainedSkill
 {
-    public IEnumerator ChainSkill();
+    public List<BaseSkill> skillChain {get; set;}
+    public IEnumerator ChainSkill(SkillController owner);
 }
