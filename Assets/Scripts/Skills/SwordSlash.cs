@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
+/*
+    Dummy Script:
+    This script is responsible for the sword slash effect. 
+    It is supposed to attached to the sword slash prefab. 
+
+*/
+
 public class SwordSlash : MonoBehaviour
 {
     // public ParticleSystem slashEffect;
     public VisualEffect slashEffect;
     private Rigidbody rb;
 
-    private void Awake() {
+    private void Awake()
+    {
         // slashEffect = GetComponent<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
     }

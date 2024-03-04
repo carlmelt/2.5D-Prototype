@@ -12,14 +12,16 @@ public class SkillReplace : MonoBehaviour
     public bool isUltimate = false;
     void Awake()
     {
-        foreach(Transform child in transform){
+        foreach (Transform child in transform)
+        {
             Button buttonChild = child.GetComponent<Button>();
-            buttonChild.onClick.AddListener(()=>select(buttonChild));
+            buttonChild.onClick.AddListener(() => select(buttonChild));
             buttons.Add(buttonChild);
         }
     }
 
-    void select(Button btn){
+    void select(Button btn)
+    {
         ClearSelection(selectedSkillButton);
         selectedSkillButton = btn.gameObject.GetComponent<SkillButton>();
         selectedSkillButton.isSelected = true;
@@ -32,13 +34,16 @@ public class SkillReplace : MonoBehaviour
         // }
     }
 
-    void ClearSelection(SkillButton targetButton){
-        if (targetButton != null){
+    void ClearSelection(SkillButton targetButton)
+    {
+        if (targetButton != null)
+        {
             targetButton.isSelected = false;
         }
     }
 
-    public void Replace(){
+    public void Replace()
+    {
         // SkillHolder playerSkill = FindObjectOfType<PlayerMovement>().GetComponent<SkillHolder>(); // Use this if player exist.
         // SkillHolder playerSkill = FindObjectOfType<SkillHolder>();
         BaseSkill selectedButtonSkill = SkillSelector.selectedButton.GetComponent<SkillButton>().skill;

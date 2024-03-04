@@ -17,7 +17,8 @@ public class MovementController : MonoBehaviour
     public float walkSpeed = 40f;
     [Range(0, .3f)][SerializeField] private float m_movementSmoother = .05f;
 
-    void Awake(){
+    void Awake()
+    {
         charRigid = GetComponent<Rigidbody>();
         attackPoint = GetComponent<AttackController>().attackPoint;
     }
@@ -25,21 +26,24 @@ public class MovementController : MonoBehaviour
     //---------------------------------------------------------------------------------------------------------------------------
     public void Move(Vector2 move)
     {
+        //move the character
         Vector3 targetVelocity = new Vector3(move.x, charRigid.velocity.y, move.y);
         charRigid.velocity = Vector3.SmoothDamp(charRigid.velocity, targetVelocity, ref m_Velocity, m_movementSmoother);
 
+        //flip the character
         if (move.x > 0 && !facingRight) Flip();
         else if (move.x < 0 && facingRight) Flip();
     }
 
     public void Dash(float dashForce)
     {
-        Vector3 Direction = facingRight ? Vector3.right: Vector3.left;
-        charRigid.AddForce(Direction * dashForce);
+        Vector3 Direction = facingRight ? Vector3.right : Vector3.left; //change to player's direction based on player's facing direction
+        charRigid.AddForce(Direction * dashForce); //add force to the player
     }
 
     private void Flip()
     {
+        //flip character
         facingRight = !facingRight;
         Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;

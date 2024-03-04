@@ -5,27 +5,31 @@ using UnityEngine;
 
 public class SkillController : MonoBehaviour
 {
-    public event Action<float> SkillCasted = delegate {};
-    public event Action<float, BaseSkill> StartCooldown = delegate {};
+    public event Action<float> SkillCasted = delegate { };
+    public event Action<float, BaseSkill> StartCooldown = delegate { };
     private Animator playerAnimator;
     public bool canSkill = true;
-   
+
     public float skillCooldown;
     public Transform skillSpawnPoint;
     AnimatorOverrideController animatorOverrider;
-    private void Awake() {
+    private void Awake()
+    {
         playerAnimator = GetComponent<Animator>();
         // animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
         // playerAnimator.runtimeAnimatorController = animatorOverrider;
-        if (playerAnimator != null) {
+        if (playerAnimator != null)
+        {
             animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
             playerAnimator.runtimeAnimatorController = animatorOverrider;
         }
     }
-    public void Skill(BaseSkill skillToUse){
-        if(skillToUse.isCooldown) return;
+    public void Skill(BaseSkill skillToUse)
+    {
+        if (skillToUse.isCooldown) return;
         //---
-        if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SkillCast")){
+        if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SkillCast"))
+        {
             //Reference the skill cooldown
             skillCooldown = skillToUse.cooldown;
             //Set the skill animation
