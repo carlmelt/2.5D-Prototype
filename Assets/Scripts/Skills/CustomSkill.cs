@@ -27,7 +27,8 @@ public class CustomSkill : BaseSkill
     IEnumerator DashFront(SkillController owner){
         yield return new WaitForSeconds(0.3f);
        MovementController player = owner.GetComponent<MovementController>();
-        Vector3 Direction = player.facingRight ? Vector3.right : Vector3.left; //change to player's direction based on player's facing direction
-        player.charRigid.AddForce(Direction * 1000); //add force to the player
+       player.Dash(1000);
+        // Vector3 Direction = player.facingRight ? Vector3.right : Vector3.left; //change to player's direction based on player's facing direction
+        // player.charRigid.AddForce(Direction * 1000); //add force to the player
     }
 }

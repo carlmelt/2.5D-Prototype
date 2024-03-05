@@ -1397,6 +1397,7 @@ MonoBehaviour:
   canSkill: 1
   skillCooldown: 0
   skillSpawnPoint: {fileID: 1663297046}
+  animatorOverrider: {fileID: 0}
 --- !u!114 &851143169
 MonoBehaviour:
   m_ObjectHideFlags: 0
