@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
     void Freeze(float timeOffset = 0.3f)
     {
+        playerAnimator.SetBool("isWalking", false);
         canWalk = false;
         canAttack = false;
         playerMove = Vector2.zero;

@@ -17,8 +17,8 @@ public class CustomSkill : BaseSkill
         //spawn the skill VFX
         GameObject skillVFXSpawn = Instantiate(skillVFX, new Vector3(spawnPoint.position.x,0.1f,spawnPoint.position.z), spawnPoint.rotation);
         //play the skill VFX
-        VisualEffect _skillVFX = skillVFXSpawn.GetComponent<VisualEffect>();
-        if (_skillVFX != null) _skillVFX.Play();
+        // VisualEffect _skillVFX = skillVFXSpawn.GetComponent<VisualEffect>();
+        // if (_skillVFX != null) _skillVFX.Play();
         Destroy(skillVFXSpawn, 5f);
         //dash the player
         owner.StartCoroutine(DashFront(owner));

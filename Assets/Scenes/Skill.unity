@@ -526,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19862245, y: 0.0000000084317815, z: -0.000000001708787, w: 0.9800761}
+  m_LocalRotation: {x: 0.19862245, y: -0.000000008431781, z: 0.0000000017087868, w: 0.9800761}
   m_LocalPosition: {x: 0.384, y: 0.583, z: -0.27000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -682,7 +682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390328261}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19862245, y: 0.0000000084317815, z: -0.000000001708787, w: 0.9800761}
+  m_LocalRotation: {x: 0.19862245, y: -0.000000008431781, z: 0.0000000017087868, w: 0.9800761}
   m_LocalPosition: {x: 0.384, y: 0.583, z: -0.27000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1150,7 +1150,6 @@ GameObject:
   - component: {fileID: 851143163}
   - component: {fileID: 851143169}
   - component: {fileID: 851143161}
-  - component: {fileID: 851143167}
   - component: {fileID: 851143165}
   - component: {fileID: 851143166}
   - component: {fileID: 851143168}
@@ -1242,7 +1241,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1431340591, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
+  m_Sprite: {fileID: -2000656889, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1365,23 +1364,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &851143167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851143157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd5b26b2fa4e3c4f9acef4c6a353de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 0}
-  currentSkill: {fileID: 11400000, guid: 13508a4542c2a6b4ba910577663f920e, type: 2}
-  canSkill: 1
-  skillCooldown: 3
-  skillSpawnPoint: {fileID: 1663297046}
 --- !u!114 &851143168
 MonoBehaviour:
   m_ObjectHideFlags: 0

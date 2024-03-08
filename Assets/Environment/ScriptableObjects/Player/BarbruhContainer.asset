@@ -16,7 +16,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 5421c4244b773024982882efb184b902, type: 2}
   Level: 5
   experiencePoint: 12000
-  skill1: {fileID: 11400000, guid: e861e920b40a57a46b304517f6ef99fc, type: 2}
+  skill1: {fileID: 11400000, guid: 1d7affbf84cea4e449769435fac99186, type: 2}
   skill2: {fileID: 11400000, guid: c71db453560504a4e95741ade07059fd, type: 2}
-  ultimateSkill: {fileID: 11400000, guid: 1d7affbf84cea4e449769435fac99186, type: 2}
+  ultimateSkill: {fileID: 11400000, guid: ea447d9db095a93488327eb01a94de0e, type: 2}
   dashSkill: {fileID: 11400000, guid: 7687e4e5c9ed4a24d9cef39a9ee58a36, type: 2}

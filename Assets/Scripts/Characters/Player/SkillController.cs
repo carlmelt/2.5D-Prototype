@@ -19,6 +19,7 @@ public class SkillController : MonoBehaviour
     public AnimatorOverrideController animatorOverrider;
     private void Awake()
     {
+        ReloadSkill(); //Refresh skills castTime, to avoid any mismatch in their time
         playerAnimator = GetComponent<Animator>();
         // animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
         // playerAnimator.runtimeAnimatorController = animatorOverrider;
@@ -37,12 +38,12 @@ public class SkillController : MonoBehaviour
         {
             //Reference the skill cooldown
             //Set the skill animation
-            if (skillToUse.skillAnim != null) animatorOverrider["TestFireSlash"] = skillToUse.skillAnim; //The default skill anim is TestFireSlash
+            if (skillToUse.skillAnim != null) animatorOverrider["DefaultCast"] = skillToUse.skillAnim; //The default skill anim is TestFireSlash
             if (isChainedSkill == null) isChainedSkill = skillToUse as IChainedSkill; //if skillToUse not a member of chainedSkill, null.
             //Activate the skill
-            skillToUse.Activate(this);
             playerAnimator.SetTrigger("Skill");
-            SkillCasted.Invoke(skillToUse.castTime);//Invoke the skill casted event that can freeze the player
+            skillToUse.Activate(this);
+            if (skillToUse.castTime > 0) SkillCasted.Invoke(skillToUse.castTime - 0.1f);//Invoke the skill casted event that can freeze the player
             if (isChainedSkill != null){
                 skillToChain = isChainedSkill.skillChain;
                 if (!skillToChain.Contains(skillToUse)) skillCooldown = skillToUse.cooldown;
@@ -75,5 +76,12 @@ public class SkillController : MonoBehaviour
         Debug.Log("Skill Ready");
     }
 
+    void ReloadSkill() {
+        PlayerContainer player = GetComponent<Player>().playerContainer;
+        List<BaseSkill> skills = new List<BaseSkill> {player.skill1, player.skill2, player.ultimateSkill, player.dashSkill};
+        foreach(BaseSkill skill in skills){
+            if(skill.skillAnim) skill.castTime = skill.skillAnim.length;
+        }
+    }
 
 }

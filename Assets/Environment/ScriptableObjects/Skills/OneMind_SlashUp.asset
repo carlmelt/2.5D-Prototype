@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9dbd05dbaba3b48b9e5fbb071e8442, type: 3}
   m_Name: OneMind_SlashUp
   m_EditorClassIdentifier: 
-  skillName: One Mind
+  actionName: One Mind
+  description: 
   damage: 5
+  castTime: 0.9833333
+  isUnlocked: 0
   skillIcon: {fileID: -1324428661, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
   skillAnim: {fileID: 7400000, guid: 7b371c035fc4c744a8a479ba91b3c91e, type: 2}
-  castTime: 0.9833333
-  cooldown: 5
-  isUnlocked: 0
-  isUltimate: 0
-  isCooldown: 1
+  _cooldown: 2
+  _isUltimate: 0
+  _isCooldown: 0
   projectile: {fileID: 3182325743491520071, guid: 338abc035d7430b4f9b3a60bbda80f91,
     type: 3}
