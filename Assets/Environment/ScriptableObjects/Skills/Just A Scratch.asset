@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5c36cb4acf2444b85d06b6f6186dfb, type: 3}
   m_Name: Just A Scratch
   m_EditorClassIdentifier: 
-  skillName: Just A Scratch
+  actionName: Just a Scratch
+  description: 
   damage: 0
+  castTime: 0.36666667
+  isUnlocked: 1
   skillIcon: {fileID: 21300000, guid: 589a6892e74c2b04a81318c8ef689ff6, type: 3}
   skillAnim: {fileID: 7400000, guid: 801450433c0c7344192e99915b51e794, type: 2}
-  castTime: 0.3666667
-  cooldown: 5
-  isUnlocked: 1
-  isUltimate: 0
-  isCooldown: 1
+  _cooldown: 7
+  _isUltimate: 0
+  _isCooldown: 1
   skillVFX: {fileID: 7661444886913710251, guid: 70bb62304b0c7f0409865c80cc465365,
     type: 3}

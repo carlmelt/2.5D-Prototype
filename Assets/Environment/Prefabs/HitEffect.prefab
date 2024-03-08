@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7661444886913710251
+--- !u!1 &6634516394602639419
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2965177592945917172}
-  - component: {fileID: 9119377722654579426}
-  - component: {fileID: 8771217486781191818}
-  - component: {fileID: 1878997526231758011}
-  - component: {fileID: 9219515622357192313}
-  m_Layer: 7
-  m_Name: Just A Scratch
+  - component: {fileID: 5033485666765500079}
+  - component: {fileID: 6126366667505013493}
+  - component: {fileID: 7305210384733257398}
+  m_Layer: 0
+  m_Name: HitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2965177592945917172
+--- !u!4 &5033485666765500079
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7661444886913710251}
+  m_GameObject: {fileID: 6634516394602639419}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.21, y: 0.02, z: 0.71}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 1, z: 15.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &9119377722654579426
+--- !u!2083052967 &6126366667505013493
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7661444886913710251}
+  m_GameObject: {fileID: 6634516394602639419}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: e2e531d2605127f43bb18341520b13b5, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 80f22aefce2db2940ac24f8ee73b20a7, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -58,7 +56,13 @@ VisualEffect:
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 2.4014947, y: 0.36462483, z: 0.37572047, w: 0}
+        m_Name: Main Color
+        m_Overridden: 1
+      - m_Value: {x: 0.81886786, y: 0.004635034, z: 0.01683716, w: 1}
+        m_Name: Spark
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -73,14 +77,14 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &8771217486781191818
+--- !u!73398921 &7305210384733257398
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7661444886913710251}
+  m_GameObject: {fileID: 6634516394602639419}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -113,38 +117,3 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1878997526231758011
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7661444886913710251}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.9437835, y: 1.0839108, z: 0.80258596}
-  m_Center: {x: -0.053789735, y: 0.56446475, z: 0.12510222}
---- !u!114 &9219515622357192313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7661444886913710251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0b8fac724f61e4aa7d62cd32bf1b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
-  colliderDelay: 1

@@ -6,17 +6,17 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UIElements.Image;
 
-public abstract class BaseSkill : ScriptableObject
+public abstract class BaseSkill : BaseActions, ISkill
 {
-    public string skillName;
-    public int damage;
-    public Sprite skillIcon;
+    public Sprite skillIcon; //skillOnly
     public AnimationClip skillAnim;
-    public float castTime;
-    public float cooldown;
-    public bool isUnlocked;
-    public bool isUltimate;
-    public bool isCooldown; //New for skill cooldown check
+    [SerializeField] float _cooldown;
+    public float cooldown {get => _cooldown; set { _cooldown = value;}} //skillOnly
+
+    [SerializeField] bool _isUltimate;
+    public bool isUltimate {get => _isUltimate; set { _isUltimate = value;}} //skillOnly
+    [SerializeField] bool _isCooldown;
+    public bool isCooldown {get => _isCooldown; set { _isCooldown = value;}} //New for skill cooldown check //skillOnly
     // Start is called before the first frame update
     public virtual void Activate(SkillController owner) { }
 

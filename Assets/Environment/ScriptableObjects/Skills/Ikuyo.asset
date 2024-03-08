@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0542c7109a378294993d6d70ee074a0e, type: 3}
   m_Name: Ikuyo
   m_EditorClassIdentifier: 
-  skillName: Ikuyo
+  actionName: Normal Dash
+  description: 
   damage: 0
+  castTime: 0.36666667
+  isUnlocked: 0
   skillIcon: {fileID: 614825144, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
   skillAnim: {fileID: 7400000, guid: 801450433c0c7344192e99915b51e794, type: 2}
-  castTime: 0.3666667
-  cooldown: 1
-  isUnlocked: 0
-  isUltimate: 0
-  isCooldown: 0
+  _cooldown: 1
+  _isUltimate: 0
+  _isCooldown: 0
   dashForce: 500
   InvicibleTime: 0.25

@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9dbd05dbaba3b48b9e5fbb071e8442, type: 3}
   m_Name: Slash
   m_EditorClassIdentifier: 
-  skillName: Slash
+  actionName: Slash
+  description: 
   damage: 5
+  castTime: 0.55
+  isUnlocked: 0
   skillIcon: {fileID: 187724007, guid: 46e28c02c2c9f2948a7f94f97d1f54ff, type: 3}
   skillAnim: {fileID: 7400000, guid: ef235106462b5174c863579a93fba454, type: 2}
-  castTime: 0.55
-  cooldown: 0.5
-  isUnlocked: 0
-  isUltimate: 0
-  isCooldown: 0
+  _cooldown: 2
+  _isUltimate: 0
+  _isCooldown: 0
   projectile: {fileID: 4372020817995423895, guid: dc3baeffa1c787d448a6c2766266e885,
     type: 3}

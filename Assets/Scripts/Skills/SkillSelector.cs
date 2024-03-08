@@ -9,7 +9,6 @@ public class SkillSelector : MonoBehaviour
 {
     // Start is called before the first frame update
     public static Button selectedButton;
-    public SkillHolder playerSkillHolder;
     public PlayerContainer playerContainer;
     public List<Button> buttons = new List<Button>();
     public bool isUltimate = false;

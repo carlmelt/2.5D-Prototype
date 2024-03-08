@@ -24,12 +24,13 @@ public class ProjectileAnimator : MonoBehaviour
     {
         // transform.position += offset;
         yield return new WaitForSeconds(startDelay);
-        transform.position = owner.skillSpawnPoint.transform.position + offset;
+        if (owner) transform.position = owner.skillSpawnPoint.transform.position + offset;
         for (int i = 0; i < sprites.Length; i++)
         {
             yield return new WaitForSeconds(frameDelay);
             spriteRenderer.sprite = sprites[i];
         }
+        yield return new WaitForSeconds(frameDelay);
         Destroy(gameObject);
     }
 }
