@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Fire Slash
   description: 
-  damage: 5
   castTime: 0.55
   isUnlocked: 0
   skillIcon: {fileID: -1830695433, guid: 3dfadf9e83cf5c7448e19574f0d0382e, type: 3}
-  skillAnim: {fileID: 7400000, guid: ef235106462b5174c863579a93fba454, type: 2}
   _cooldown: 2
   _isUltimate: 0
   _isCooldown: 0
   projectile: {fileID: 2043022768515870608, guid: d4705c04897d01846ad18e9fa3513dce,
     type: 3}
+  _damage: 0
+  attackAnimation: {fileID: 7400000, guid: ef235106462b5174c863579a93fba454, type: 2}

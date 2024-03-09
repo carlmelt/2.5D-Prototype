@@ -19,7 +19,6 @@ public class SkillController : MonoBehaviour
     public AnimatorOverrideController animatorOverrider;
     private void Awake()
     {
-        ReloadSkill(); //Refresh skills castTime, to avoid any mismatch in their time
         playerAnimator = GetComponent<Animator>();
         // animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
         // playerAnimator.runtimeAnimatorController = animatorOverrider;
@@ -28,8 +27,9 @@ public class SkillController : MonoBehaviour
             animatorOverrider = new AnimatorOverrideController(playerAnimator.runtimeAnimatorController);
             playerAnimator.runtimeAnimatorController = animatorOverrider;
         }
+        ReloadSkill(); //Refresh skills castTime, to avoid any mismatch in their time
     }
-    public void Skill(BaseSkill skillToUse)
+    public void Skill(PlayerController owner, BaseSkill skillToUse)
     {
         if (skillToUse.isCooldown) return;
         Debug.Log("Skill Called");
@@ -38,11 +38,14 @@ public class SkillController : MonoBehaviour
         {
             //Reference the skill cooldown
             //Set the skill animation
-            if (skillToUse.skillAnim != null) animatorOverrider["DefaultCast"] = skillToUse.skillAnim; //The default skill anim is TestFireSlash
+            // IAttack attackSkill = skillToUse as IAttack;
+            ICustomAnimation skillAnimation = skillToUse as ICustomAnimation;
+            // if (attackSkill != null) animatorOverrider["DefaultCast"] = attackSkill.attackAnimation; //The default skill anim is DefaultCast
+            if (skillAnimation != null) animatorOverrider["DefaultCast"] = skillAnimation.customAnimation; //The default skill anim is DefaultCast
             if (isChainedSkill == null) isChainedSkill = skillToUse as IChainedSkill; //if skillToUse not a member of chainedSkill, null.
             //Activate the skill
             playerAnimator.SetTrigger("Skill");
-            skillToUse.Activate(this);
+            skillToUse.Activate(owner);
             if (skillToUse.castTime > 0) SkillCasted.Invoke(skillToUse.castTime - 0.1f);//Invoke the skill casted event that can freeze the player
             if (isChainedSkill != null){
                 skillToChain = isChainedSkill.skillChain;
@@ -80,7 +83,10 @@ public class SkillController : MonoBehaviour
         PlayerContainer player = GetComponent<Player>().playerContainer;
         List<BaseSkill> skills = new List<BaseSkill> {player.skill1, player.skill2, player.ultimateSkill, player.dashSkill};
         foreach(BaseSkill skill in skills){
-            if(skill.skillAnim) skill.castTime = skill.skillAnim.length;
+            // IAttack attackSkill = skill as IAttack;
+            ICustomAnimation skillAnimation = skill as ICustomAnimation;
+            skill.castTime = (skillAnimation != null) ? (skillAnimation.customAnimation != null) ? skillAnimation.customAnimation.length : 0 : animatorOverrider["DefaultCast"].length;
+            // if(attackSkill != null) skill.castTime = attackSkill.attackAnimation.length;
         }
     }
 

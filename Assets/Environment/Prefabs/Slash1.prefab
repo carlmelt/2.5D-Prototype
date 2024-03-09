@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0.07, y: 0, z: 0}
   frameDelay: 0.1
   startDelay: 0.1
   sprites:
