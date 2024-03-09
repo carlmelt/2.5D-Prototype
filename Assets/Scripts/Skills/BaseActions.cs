@@ -5,26 +5,30 @@ using UnityEngine;
 public abstract class BaseActions : ScriptableObject
 {
     public string actionName;
-    public string description;
-    public int damage;
+    [TextArea] public string description;
     public float castTime;
     public bool isUnlocked;
-    // public virtual void Activate() { }
+    public virtual void Activate(PlayerController owner) { }
 }
 
 public interface ISkill {
-    public float cooldown {get; set;}
-    public bool isCooldown {get; set;}
-    public bool isUltimate {get; set;}
-    public virtual void Activate(SkillController owner){}
+    float cooldown {get; set;}
+    bool isCooldown {get; set;}
+    bool isUltimate {get; set;}
+    // virtual void Activate(SkillController owner){}
 }
 
 public interface IAttack {
-    public AnimationClip attackAnimation {get; set;}
-    public virtual void ActivateAttack(AttackController owner){}
+    // AnimationClip attackTransition {get; set;}
+    int damage {get;}
+}
+
+public interface ICustomAnimation {
+    AnimationClip customAnimation {get;}
 }
 
 public interface IPositionModifier {
-    public float moveDelay {get; set;}
-    public void ActivateMove(MovementController owner){}
+    PlayerController owner {get;}
+    float moveDelay {get; set;}
+    float moveForce {get;}
 }

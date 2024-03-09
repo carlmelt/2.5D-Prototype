@@ -5,13 +5,15 @@ using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "New Custom Skill", menuName = "Skill/Custom")]
 
-public class CustomSkill : BaseSkill
+public class CustomSkill : BaseSkill, ICustomAnimation
 {
+    [SerializeField] AnimationClip skillAnimation;
+    public AnimationClip customAnimation {get => skillAnimation;}
     public GameObject skillVFX;
     
-    public override void Activate(SkillController owner)
+    public override void Activate(PlayerController owner)
     {
-        Transform spawnPoint = owner.skillSpawnPoint;
+        Transform spawnPoint = owner.playerSkill.skillSpawnPoint;
         //wait for 0.5s
 
         //spawn the skill VFX
@@ -24,7 +26,7 @@ public class CustomSkill : BaseSkill
         owner.StartCoroutine(DashFront(owner));
     }
 
-    IEnumerator DashFront(SkillController owner){
+    IEnumerator DashFront(PlayerController owner){
         yield return new WaitForSeconds(0.3f);
        MovementController player = owner.GetComponent<MovementController>();
        player.Dash(1000);

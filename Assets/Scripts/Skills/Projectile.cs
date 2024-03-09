@@ -26,19 +26,19 @@ public class Projectile : MonoBehaviour
     void OnTriggerStay(Collider entity){
         if (entity.CompareTag("Enemy")){
             Enemy enemy = entity.GetComponent<Enemy>();
-            enemy.Damage += DebugDuluGaSih;
+            // enemy.Damage += DebugDuluGaSih;
             enemy?.Damaged(playerStats.Attack);
         }
     }
 
-    void OnTriggerExit(Collider entity){
-        if (entity.CompareTag("Enemy")){
-            Enemy enemy = entity.GetComponent<Enemy>();
-            enemy.Damage -= DebugDuluGaSih;
-        }
-    }
+    // void OnTriggerExit(Collider entity){
+    //     if (entity.CompareTag("Enemy")){
+    //         Enemy enemy = entity.GetComponent<Enemy>();
+    //         enemy.Damage -= DebugDuluGaSih;
+    //     }
+    // }
 
-    void DebugDuluGaSih(){
-        Debug.Log("aw");
-    }
+    // void DebugDuluGaSih(){
+    //     Debug.Log("aw");
+    // }
 }

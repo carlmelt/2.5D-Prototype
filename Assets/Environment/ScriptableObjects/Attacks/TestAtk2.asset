@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f1cdf24ab947b41a9507b4f8451fac, type: 3}
+  m_Name: TestAtk2
+  m_EditorClassIdentifier: 
+  actionName: Test Attack 2
+  description: 
+  castTime: 0
+  isUnlocked: 0
+  attackAnimation: {fileID: 7400000, guid: b63aafd92bbb4074fb1d2c5344f41b0d, type: 2}
+  attackDamage: 0
+  attackProjectile: {fileID: 0}

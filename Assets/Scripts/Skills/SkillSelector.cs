@@ -24,7 +24,7 @@ public class SkillSelector : MonoBehaviour
 
     void Start()
     {
-        // playerSkillHolder = FindObjectOfType<PlayerMovement>().GetComponent<SkillHolder>(); //If player exist, use this
+        // playerSkillHolder = FindObjectOfType<PlayerMovement>().GetComponent<SkillController>(); //If player exist, use this
         // playerSkillHolder = FindObjectOfType<SkillHolder>(); // For testing purpose, when player doesn't exist.
         // playerSkillHolder.skillChanged += UpdateButton;
         //Adjust initial button skill, so they match with player's skill.
