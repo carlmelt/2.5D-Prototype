@@ -2309,7 +2309,6 @@ GameObject:
   - component: {fileID: 703503185}
   - component: {fileID: 703503187}
   - component: {fileID: 703503186}
-  - component: {fileID: 703503188}
   - component: {fileID: 703503189}
   m_Layer: 5
   m_Name: SkillParent
@@ -2378,23 +2377,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703503184}
   m_CullTransparentMesh: 1
---- !u!114 &703503188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703503184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd5b26b2fa4e3c4f9acef4c6a353de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 0}
-  currentSkill: {fileID: 11400000, guid: 13508a4542c2a6b4ba910577663f920e, type: 2}
-  canSkill: 1
-  skillCooldown: 0
-  skillSpawnPoint: {fileID: 0}
 --- !u!114 &703503189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2407,7 +2389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48366d6793e29544a9e323b0d06d03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerContainer: {fileID: 11400000, guid: 0f7d5086686500c498ab8a03b81eb8c9, type: 2}
+  selectedPlayer: {fileID: 11400000, guid: 0f7d5086686500c498ab8a03b81eb8c9, type: 2}
   buttons: []
   isUltimate: 0
 --- !u!1 &869658951

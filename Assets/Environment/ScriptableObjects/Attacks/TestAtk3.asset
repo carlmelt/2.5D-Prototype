@@ -16,6 +16,8 @@ MonoBehaviour:
   description: 
   castTime: 0
   isUnlocked: 0
-  attackAnimation: {fileID: 7400000, guid: 9dddf5c272ab6cd438deb3072692b168, type: 2}
+  attackAnimation: {fileID: 7400000, guid: 7b371c035fc4c744a8a479ba91b3c91e, type: 2}
+  attackTransition: {fileID: 0}
   attackDamage: 0
-  attackProjectile: {fileID: 0}
+  attackProjectile: {fileID: 3182325743491520071, guid: 338abc035d7430b4f9b3a60bbda80f91,
+    type: 3}
