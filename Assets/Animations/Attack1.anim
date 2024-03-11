@@ -30,6 +30,8 @@ AnimationClip:
       value: {fileID: 574545699, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
     - time: 0.33333334
       value: {fileID: -416233363, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
+    - time: 0.41666666
+      value: {fileID: -416233363, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -57,12 +59,13 @@ AnimationClip:
     - {fileID: -787239129, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
     - {fileID: 574545699, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
     - {fileID: -416233363, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
+    - {fileID: -416233363, guid: a3474d94a51ce404890ba7fce06d4686, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -93,6 +96,6 @@ AnimationClip:
     functionName: Dash
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 10
+    floatParameter: 100
     intParameter: 0
     messageOptions: 0
