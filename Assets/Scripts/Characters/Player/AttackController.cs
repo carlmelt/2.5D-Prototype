@@ -18,12 +18,25 @@ public class AttackController : MonoBehaviour
     [Header("Combo")]
     [SerializeField] private int comboCount = 3;
     public int currentCombo = 0;
+    AnimatorOverrideController animatorOverride;
+    PlayerContainer player;
 
+    void Awake(){
+        player = GetComponent<Player>().playerContainer;
+        comboCount = player.playerAttacks.Count;
+    }
+
+    void Start(){
+        animatorOverride = GetComponent<SkillController>().animatorOverrider;
+    }
 
     // Replace the Combo system here with the new combo system based on playerContainer`s Properties
     public void Attack(Animator playerAnimator)
     {//refactor
-        playerAnimator.SetTrigger("Attack" + currentCombo.ToString());
+        // playerAnimator.SetTrigger("Attack" + currentCombo.ToString());
+        animatorOverride["Attack1"] = player.playerAttacks[currentCombo].customAnimation;
+        playerAnimator.SetTrigger("Attack0");
+        player.playerAttacks[currentCombo].Activate(GetComponent<PlayerController>());
         currentCombo += 1;
         if (currentCombo >= comboCount) currentCombo = 0;
         //Get overlapping entities

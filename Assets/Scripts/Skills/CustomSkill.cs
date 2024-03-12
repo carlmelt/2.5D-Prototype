@@ -5,29 +5,32 @@ using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "New Custom Skill", menuName = "Skill/Custom")]
 
-public class CustomSkill : BaseSkill
+public class CustomSkill : BaseSkill, ICustomAnimation
 {
+    [SerializeField] AnimationClip skillAnimation;
+    public AnimationClip customAnimation {get => skillAnimation;}
     public GameObject skillVFX;
     
-    public override void Activate(SkillController owner)
+    public override void Activate(PlayerController owner)
     {
-        Transform spawnPoint = owner.skillSpawnPoint;
+        Transform spawnPoint = owner.playerSkill.skillSpawnPoint;
         //wait for 0.5s
 
         //spawn the skill VFX
         GameObject skillVFXSpawn = Instantiate(skillVFX, new Vector3(spawnPoint.position.x,0.1f,spawnPoint.position.z), spawnPoint.rotation);
         //play the skill VFX
-        VisualEffect _skillVFX = skillVFXSpawn.GetComponent<VisualEffect>();
-        if (_skillVFX != null) _skillVFX.Play();
+        // VisualEffect _skillVFX = skillVFXSpawn.GetComponent<VisualEffect>();
+        // if (_skillVFX != null) _skillVFX.Play();
         Destroy(skillVFXSpawn, 5f);
         //dash the player
         owner.StartCoroutine(DashFront(owner));
     }
 
-    IEnumerator DashFront(SkillController owner){
+    IEnumerator DashFront(PlayerController owner){
         yield return new WaitForSeconds(0.3f);
        MovementController player = owner.GetComponent<MovementController>();
-        Vector3 Direction = player.facingRight ? Vector3.right : Vector3.left; //change to player's direction based on player's facing direction
-        player.charRigid.AddForce(Direction * 1000); //add force to the player
+       player.Dash(1000);
+        // Vector3 Direction = player.facingRight ? Vector3.right : Vector3.left; //change to player's direction based on player's facing direction
+        // player.charRigid.AddForce(Direction * 1000); //add force to the player
     }
 }

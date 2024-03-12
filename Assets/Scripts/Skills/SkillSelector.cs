@@ -9,8 +9,7 @@ public class SkillSelector : MonoBehaviour
 {
     // Start is called before the first frame update
     public static Button selectedButton;
-    public SkillHolder playerSkillHolder;
-    public PlayerContainer playerContainer;
+    public PlayerContainer selectedPlayer;
     public List<Button> buttons = new List<Button>();
     public bool isUltimate = false;
     void Awake()
@@ -25,15 +24,15 @@ public class SkillSelector : MonoBehaviour
 
     void Start()
     {
-        // playerSkillHolder = FindObjectOfType<PlayerMovement>().GetComponent<SkillHolder>(); //If player exist, use this
+        // playerSkillHolder = FindObjectOfType<PlayerMovement>().GetComponent<SkillController>(); //If player exist, use this
         // playerSkillHolder = FindObjectOfType<SkillHolder>(); // For testing purpose, when player doesn't exist.
         // playerSkillHolder.skillChanged += UpdateButton;
         //Adjust initial button skill, so they match with player's skill.
         // List<BaseSkill> playerSkills = new List<BaseSkill>(){SkillHolder.skill1, SkillHolder.skill2, SkillHolder.ultimateSkill};
 
 
-        playerContainer.skillChanged += UpdateButton; //Add listener to skillChanged event
-        List<BaseSkill> playerSkills = new List<BaseSkill>() { playerContainer.skill1, playerContainer.skill2, playerContainer.ultimateSkill };
+        selectedPlayer.skillChanged += UpdateButton; //Add listener to skillChanged event
+        List<BaseSkill> playerSkills = new List<BaseSkill>() { selectedPlayer.skill1, selectedPlayer.skill2, selectedPlayer.ultimateSkill };
         for (int i = 0; i < buttons.Count; i++)
         {
             if (playerSkills[i] != null) UpdateButton(i, playerSkills[i]);
@@ -44,7 +43,7 @@ public class SkillSelector : MonoBehaviour
     void OnDisable()
     {
 
-        playerContainer.skillChanged -= UpdateButton;
+        selectedPlayer.skillChanged -= UpdateButton;
     }
 
     void UpdateButton(int buttonIndex, BaseSkill buttonSkill)

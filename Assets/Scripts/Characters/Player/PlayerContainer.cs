@@ -9,6 +9,11 @@ public class PlayerContainer : CharacterContainer
 {
     public float experiencePoint;
     public event Action<int, BaseSkill> skillChanged = delegate { };
+
+    [Header("Player Attacks")]
+    public List<BaseAttack> playerAttacks = new List<BaseAttack>();
+
+    [Header("Player Skills")]
     public BaseSkill skill1;
     public BaseSkill skill2;
     public BaseSkill ultimateSkill;

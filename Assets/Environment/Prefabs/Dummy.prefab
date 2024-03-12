@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1017963321528922384}
   m_Layer: 6
   m_Name: Dummy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,8 @@ MonoBehaviour:
   deadParticle: {fileID: 42916591642824686, guid: 2bfd3ea3f995d7947a97ad2f7124d6b8,
     type: 3}
   _maxHealth: 25
+  hitEffect: {fileID: 6634516394602639419, guid: 672c0d15a1e801845a2864ebb1401ec8,
+    type: 3}
 --- !u!114 &2183873442136916109
 MonoBehaviour:
   m_ObjectHideFlags: 0

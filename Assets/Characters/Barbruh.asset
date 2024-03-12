@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4497d60726598b446ac14017542895be, type: 3}
   m_Name: Barbruh
   m_EditorClassIdentifier: 
-  Name: Barbruh
   Health: 100
-  Attack: 5
+  Attack: 1
   Defense: 2
   criticalChance: 5
   criticalDamage: 20
   Speed: 100
+  Level: 0
+  Model: {fileID: 0}
+  miniModel: {fileID: 0}
+  Illustration: {fileID: 0}
   Energy: 100
   energyRecovery: 0.2

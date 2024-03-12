@@ -6,27 +6,22 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UIElements.Image;
 
-public abstract class BaseSkill : ScriptableObject
+public abstract class BaseSkill : BaseActions, ISkill
 {
-    public string skillName;
-    public int damage;
-    public Sprite skillIcon;
-    public AnimationClip skillAnim;
-    public float castTime;
-    public float cooldown;
-    public bool isUnlocked;
-    public bool isUltimate;
-    public bool isCooldown; //New for skill cooldown check
-    // Start is called before the first frame update
-    public virtual void Activate(SkillController owner) { }
+    public Sprite skillIcon; //skillOnly
+    // public AnimationClip skillAnim;
+    [SerializeField] float _cooldown;
+    public float cooldown {get => _cooldown; set { _cooldown = value;}} //skillOnly
 
-    void Awake()
-    {
-        if (skillAnim) castTime = skillAnim.length;
-    }
+    [SerializeField] bool _isUltimate;
+    public bool isUltimate {get => _isUltimate; set { _isUltimate = value;}} //skillOnly
+    [SerializeField] bool _isCooldown;
+    public bool isCooldown {get => _isCooldown; set { _isCooldown = value;}} //New for skill cooldown check //skillOnly
+    // Start is called before the first frame update
 }
 
 public interface IChainedSkill
 {
-    public IEnumerator ChainSkill();
+    public List<BaseSkill> skillChain {get; set;}
+    public IEnumerator ChainSkill(PlayerController owner);
 }

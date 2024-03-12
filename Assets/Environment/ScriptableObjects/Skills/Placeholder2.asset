@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9dbd05dbaba3b48b9e5fbb071e8442, type: 3}
   m_Name: Placeholder2
   m_EditorClassIdentifier: 
-  skillName: placeholder2
+  actionName: placeholder2
+  description: 
   damage: 0
-  skillAnim: {fileID: 0}
   castTime: 0
-  cooldown: 0
   isUnlocked: 0
-  isUltimate: 0
+  skillIcon: {fileID: 0}
+  skillAnim: {fileID: 0}
+  _cooldown: 0
+  _isUltimate: 0
+  _isCooldown: 0
   projectile: {fileID: 0}

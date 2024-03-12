@@ -73,15 +73,14 @@ public class PlayerController : MonoBehaviour
         }
         if (playerInput.actions["Dash"].triggered)
         {//Dash Button
-            playerSkill.Skill(playerContainer.dashSkill);
+            playerSkill.Skill(this, playerContainer.dashSkill);
             playerAttack.currentCombo = 0;
-
         }
 
         //Skill Button
-        if (playerInput.actions["Skill1"].triggered) playerSkill.Skill(playerContainer.skill1);
-        if (playerInput.actions["Skill2"].triggered) playerSkill.Skill(playerContainer.skill2);
-        if (playerInput.actions["Ultimate"].triggered) playerSkill.Skill(playerContainer.ultimateSkill);
+        if (playerInput.actions["Skill1"].triggered) playerSkill.Skill(this, playerContainer.skill1);
+        if (playerInput.actions["Skill2"].triggered) playerSkill.Skill(this, playerContainer.skill2);
+        if (playerInput.actions["Ultimate"].triggered) playerSkill.Skill(this, playerContainer.ultimateSkill);
 
     }
 
@@ -106,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
     void Freeze(float timeOffset = 0.3f)
     {
+        playerAnimator.SetBool("isWalking", false);
         canWalk = false;
         canAttack = false;
         playerMove = Vector2.zero;
