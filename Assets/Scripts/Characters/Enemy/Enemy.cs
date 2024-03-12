@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         Damage?.Invoke();
         GameObject enemyHitEffect = Instantiate(hitEffect, transform.position, new Quaternion(0,0,0,0));
         Destroy(enemyHitEffect, 3f);
-        StartCoroutine(Invincible(0.15f));
+        
         if (_currentHealth <= 0)
         {
             Die();
@@ -61,9 +61,25 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator Invincible(float duration){
+    IEnumerator Invincible(float duration, Collider collision){
         isInvincible = true;
+        Physics.IgnoreCollision(collision, GetComponent<Collider>());
         yield return new WaitForSeconds(duration);
+        if(collision != null) Physics.IgnoreCollision(collision, GetComponent<Collider>(), false);
         isInvincible = false;
+    }
+
+    // private void OnCollisionEnter(Collision other) {
+    //     if(other.gameObject.CompareTag("Skill")){
+    //         Physics.IgnoreCollision(other.collider, GetComponent<Collider>());
+
+    //     }
+    // }
+
+    private void OnTriggerStay(Collider other) {
+        if(other.gameObject.CompareTag("Skill")){
+           StartCoroutine(Invincible(0.15f, other));
+        }
+
     }
 }

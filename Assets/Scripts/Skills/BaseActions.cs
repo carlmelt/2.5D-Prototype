@@ -27,8 +27,3 @@ public interface ICustomAnimation {
     AnimationClip customAnimation {get;}
 }
 
-public interface IPositionModifier {
-    PlayerController owner {get;}
-    float moveDelay {get; set;}
-    float moveForce {get;}
-}
