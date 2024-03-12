@@ -27,6 +27,7 @@ public class Projectile : MonoBehaviour
         if (entity.CompareTag("Enemy")){
             Enemy enemy = entity.GetComponent<Enemy>();
             // enemy.Damage += DebugDuluGaSih;
+            //Delay
             enemy?.Damaged(playerStats.Attack);
         }
     }

@@ -10,7 +10,8 @@ public class BaseAttack : BaseActions, IAttack, ICustomAnimation
     public AnimationClip attackTransition;
     [SerializeField] int attackDamage;
     [SerializeField] GameObject attackProjectile;
-    public int damage {get => attackDamage;}
+    public int damage {get => attackDamage;} //update
+
 
     public override void Activate(PlayerController owner)
     {
