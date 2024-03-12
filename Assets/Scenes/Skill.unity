@@ -1224,7 +1224,7 @@ GameObject:
   - component: {fileID: 851143170}
   m_Layer: 3
   m_Name: Character_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1447,7 +1447,6 @@ MonoBehaviour:
   canSkill: 1
   skillCooldown: 0
   skillSpawnPoint: {fileID: 1663297046}
-  animatorOverrider: {fileID: 0}
 --- !u!114 &851143169
 MonoBehaviour:
   m_ObjectHideFlags: 0
