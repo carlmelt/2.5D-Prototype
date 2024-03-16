@@ -8,7 +8,7 @@ public class PlayerStats : CharacterStats
 {
     public Sprite miniModel;
     public Sprite Illustration;
-    public int Energy = 100;
-    public float energyRecovery = 0.2f;
+    // public int Energy = 100;
+    // public float energyRecovery = 0.2f;
     // public float experiencePoint = 0;
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public abstract class CharacterStats : ScriptableObject
     public int Defense;
     public float criticalChance;
     public float criticalDamage;
-    public int Speed;
+    public Attribute Speed;
     public int Level;
     public Sprite Model;
 
